@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+}
+
+.header {
+    width: 1320px;
+    height: 131px;
+    background-color: rgb(247, 247, 247);
+    margin: 0 auto;
+}
+
+.logo {
+    width: 195px;
+    height: 44px;
+    margin-left: 63px;
+    margin-top: 44px;
+    float: left;
+}
+
+.content {
+    width: 317px;
+    height: 21px;
+    float: right;
+    margin-right: 42px;
+    margin-top: 55px;
+}
+
+.phone {
+    float: left;
+    width: 16px;
+    height: 19px;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+
+.phone-number {
+    width: 94px;
+    height: 21px;
+    float: left;
+    font-family: "SourceHanSansCN";
+    font-size: 14px;
+    color: #8d8d8d;
+    line-height: 21px;
+    margin-left: 4px;
+}
+
+.line {
+    width: 1px;
+    height: 13px;
+    background-color: #e4e4e4;
+    float: left;
+    margin-right: 15px;
+    margin-left: 14px;
+    margin-top: 6px;
+}
+
+.email {
+    width: 20px;
+    height: 16px;
+    float: left;
+    margin-top: 4px;
+}
+
+.email-address {
+    width: 132px;
+    height: 21px;
+    float: left;
+    margin-left: 10px;
+    font-family: "SourceHanSansCN";
+    font-size: 14px;
+    color: #8d8d8d;
+    line-height: 21px;
+}
