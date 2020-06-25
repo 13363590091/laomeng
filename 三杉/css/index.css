@@ -259,3 +259,451 @@ h6 {
     line-height: 26px;
     color: #666;
 }
+
+
+/*service*/
+
+.ser {
+    width: 100%;
+    height: 469px;
+    padding-top: 49px;
+    background-color: #fff;
+}
+
+.ser-title {
+    width: 267px;
+    height: 25px;
+    margin: 0 auto;
+    font-family: SanFranciscoDisplay-Semibold;
+    font-size: 36px;
+    line-height: 26px;
+    letter-spacing: -0.063em;
+    color: #4a8fe3;
+}
+
+.ser-title2 {
+    width: 94px;
+    height: 22px;
+    margin: 0 auto;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 24px;
+    line-height: 22px;
+    letter-spacing: -0.027em;
+    margin-top: 20px;
+}
+
+.ser-title3 {
+    width: 53px;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #4a8fe3;
+    margin-top: 19px;
+    margin-bottom: 37px;
+}
+
+.ser-disp {
+    width: 1320px;
+    height: 191px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 29px 3px rgba(0, 0, 0, 0.06);
+    background-color: aliceblue;
+}
+
+.ser-disp-li1 {
+    width: 72px;
+    height: 107px;
+    margin-top: 53px;
+    margin-left: 172px;
+    margin-right: 113px;
+    float: left;
+}
+
+.ser-disp-li1-a {
+    width: 72px;
+    height: 61px;
+    background-image: url(../imgs/icon1.png);
+    background-repeat: no-repeat;
+}
+
+.ser-disp-li1-b {
+    width: 28px;
+    height: 14px;
+    margin: 0 auto;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+    margin-top: 32px;
+    color: #666666;
+}
+
+.ser-disp-li2 {
+    width: 298px;
+    height: 191px;
+    background-color: aqua;
+    float: left;
+}
+
+.ser-disp-li2-a {
+    width: 66px;
+    height: 110px;
+    float: left;
+    margin: 49px 115px 32px 115px;
+}
+
+.ser-disp-li2-b {
+    width: 1px;
+    height: 45px;
+    margin-top: 71px;
+    margin-bottom: 75px;
+    background-color: #e6e6e6;
+    float: left;
+}
+
+.ser-disp-li2-c {
+    width: 66px;
+    height: 61px;
+    background-image: url(../imgs/icon2.png);
+    background-repeat: no-repeat;
+}
+
+.ser-disp-li2-d {
+    width: 28px;
+    height: 14px;
+    margin: 0 auto;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+    margin-top: 36px;
+    color: #666666;
+}
+
+.ser-disp-li3-a {
+    width: 63px;
+    height: 114px;
+    margin: 45px 129px 32px 114px;
+    float: left;
+}
+
+.ser-disp-li3-b {
+    width: 63px;
+    height: 63px;
+    background-image: url(../imgs/icon3.png);
+    background-repeat: no-repeat;
+}
+
+.ser-disp-li3-c {
+    width: 28px;
+    height: 13px;
+    margin: 0 auto;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 13px;
+    margin-top: 38px;
+    color: #666666;
+}
+
+.ser-disp-li4-a {
+    width: 56px;
+    height: 107px;
+    margin: 52px 173px 32px 129px;
+    float: left;
+}
+
+.ser-disp-li4-b {
+    width: 56px;
+    height: 56px;
+    background-image: url(../imgs/icon4.png);
+    background-repeat: no-repeat;
+}
+
+.ser-disp-li4-c {
+    width: 28px;
+    height: 14px;
+    margin: 0 auto;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+    margin-top: 37px;
+    color: #666666;
+}
+
+
+/*case*/
+
+.case {
+    width: 100%;
+    height: 1051px;
+    padding-top: 76px;
+}
+
+.case-title1 {
+    width: 216px;
+    height: 26px;
+    margin: 0 auto;
+    font-family: SanFranciscoDisplay-Semibold;
+    font-size: 36px;
+    letter-spacing: -0.071em;
+    line-height: 22px;
+    color: #4a8fe3;
+}
+
+.case-title2 {
+    width: 94px;
+    height: 22px;
+    margin: 0 auto;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 24px;
+    line-height: 22px;
+    letter-spacing: -0.027em;
+    margin-top: 20px;
+}
+
+.case-title3 {
+    width: 53px;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #4a8fe3;
+    margin-top: 19px;
+    margin-bottom: 37px;
+}
+
+.case-disp {
+    width: 1200px;
+    height: 752px;
+    margin-top: 61px;
+    margin: 0 auto;
+}
+
+.case-disp-a {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case1.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-a-1 {
+    width: 261px;
+    height: 50px;
+    margin-top: 301px;
+    background-color: #000000;
+    opacity: 0.5;
+    float: left;
+}
+
+.case-disp-a-1-1 {
+    width: 149px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #ffffff;
+    margin-left: 56px;
+    margin-top: 15px;
+    letter-spacing: 0.026em;
+    line-height: 20px;
+}
+
+.case-disp-b {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case2.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-b-1 {
+    width: 261px;
+    height: 50px;
+    margin-top: 301px;
+    background-color: #000000;
+    opacity: 0.5;
+    float: left;
+}
+
+.case-disp-b-1-1 {
+    width: 149px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #ffffff;
+    margin-left: 56px;
+    margin-top: 15px;
+    letter-spacing: 0.026em;
+    line-height: 20px;
+}
+
+.case-disp-c {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case3.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-c-1 {
+    width: 261px;
+    height: 50px;
+    margin-top: 301px;
+    background-color: #000000;
+    opacity: 0.5;
+    float: left;
+}
+
+.case-disp-c-1-1 {
+    width: 149px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #ffffff;
+    margin-left: 56px;
+    margin-top: 15px;
+    letter-spacing: 0.026em;
+    line-height: 20px;
+}
+
+.case-disp-d {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case4.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-d-1 {
+    width: 261px;
+    height: 50px;
+    margin-top: 301px;
+    background-color: #000000;
+    opacity: 0.5;
+    float: left;
+}
+
+.case-disp-d-1-1 {
+    width: 167px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #ffffff;
+    margin: auto auto;
+    margin-top: 15px;
+    letter-spacing: -0.08em;
+    line-height: 18px;
+}
+
+.case-disp-e {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case5.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-e-1-1 {
+    width: 149px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #ffffff;
+    letter-spacing: 0.026em;
+    line-height: 20px;
+    margin: 0 auto;
+}
+
+.case-disp-f {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case6.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-f-1-1 {
+    width: 201px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #ffffff;
+    letter-spacing: 0.008em;
+    line-height: 20px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.case-disp-g {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case7.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-g-1-1 {
+    width: 186px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    margin: 0 auto;
+    margin-top: 15px;
+    color: #ffffff;
+    letter-spacing: 0.026em;
+    line-height: 20px;
+}
+
+.case-disp-h {
+    width: 261px;
+    height: 351px;
+    background-image: url(../imgs/case8.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.case-disp-h-1-1 {
+    width: 149px;
+    height: 18px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #ffffff;
+    letter-spacing: 0.026em;
+    line-height: 20px;
+    margin: 0 auto;
+}
+
+
+/*end*/
+
+.end {
+    width: 100%;
+    height: 308px;
+    background-color: #2d55a2;
+}
+
+.end-top {
+    width: 100%;
+    height: 263px;
+}
+
+.end-bottom {
+    width: 100%;
+    height: 45px;
+    background-color: #224382;
+}
