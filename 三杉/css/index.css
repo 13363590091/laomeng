@@ -693,17 +693,204 @@ h6 {
 
 .end {
     width: 100%;
-    height: 308px;
+    height: 278px;
     background-color: #2d55a2;
+    padding-top: 30px;
 }
 
 .end-top {
     width: 100%;
-    height: 263px;
+    height: 233px;
+}
+
+.end-top-a {
+    width: 1200px;
+    height: 193px;
+    margin: 0 auto;
+}
+
+.end-top-a-nav {
+    width: 583px;
+    height: 193px;
+    margin-right: 369px;
+    float: left;
+}
+
+.end-top-a-nav-1 {
+    width: 25px;
+    height: 193px;
+    float: left;
+    margin-right: 48px;
+}
+
+.end-list1-a {
+    width: 25px;
+    height: 13px;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: 0.042em;
+}
+
+.end-top-a-nav-2 {
+    width: 25px;
+    height: 193px;
+    float: left;
+    margin-right: 78px;
+}
+
+.end-list2-b {
+    width: 24px;
+    height: 13px;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    margin-top: 18px;
+    opacity: 0.5;
+    color: #fff;
+    line-height: 0.45;
+    letter-spacing: 0em;
+}
+
+.end-top-a-nav-3 {
+    width: 120px;
+    height: 193px;
+    margin-right: 60px;
+    float: left;
+}
+
+.end-list3-a {
+    width: 120px;
+    height: 13px;
+    font-family: MicrosoftYaHei;
+    color: #fff;
+    opacity: 0.5;
+    margin-top: 18px;
+    line-height: 0.5;
+    font-size: 13px;
+    letter-spacing: -0.08em;
+}
+
+.end-list3-b {
+    width: 84px;
+    height: 13px;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.5;
+    margin-top: 18px;
+    line-height: 0.5;
+}
+
+.end-list3-c {
+    width: 96px;
+    height: 13px;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.5;
+    margin-top: 18px;
+    line-height: 0.5;
+}
+
+.end-top-a-nav-4 {
+    width: 36px;
+    height: 193px;
+    margin-right: 73px;
+    float: left;
+}
+
+.end-list4-a {
+    width: 36px;
+    height: 13px;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.5;
+    line-height: 0.5;
+    margin-top: 18px;
+}
+
+.end-top-a-nav-5 {
+    width: 36px;
+    height: 193px;
+    margin-right: 56px;
+    float: left;
+}
+
+.end-top-a-nav-6 {
+    width: 25px;
+    height: 193px;
+    float: left;
+}
+
+.end-top-a-pic {
+    width: 191px;
+    height: 113px;
+    float: left;
+    margin-top: 49px;
+}
+
+.end-top-pic1 {
+    width: 90px;
+    height: 90px;
+    background-image: url(../imgs/erwei1.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.end-top-pic2 {
+    width: 90px;
+    height: 90px;
+    background-image: url(../imgs/erwei2.png);
+    background-repeat: no-repeat;
+    margin-left: 11px;
+    float: left;
+}
+
+.end-top-content1 {
+    width: 25px;
+    height: 13px;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: 0.042em;
+    float: left;
+    margin-top: 10px;
+    margin-right: 77px;
+    margin-left: 26px;
+}
+
+.end-top-content2 {
+    width: 50px;
+    height: 13px;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: 0.042em;
+    float: left;
+    margin-top: 10px;
 }
 
 .end-bottom {
     width: 100%;
-    height: 45px;
+    height: 23px;
     background-color: #224382;
+    padding-top: 22px;
+}
+
+.end-bottom-target {
+    width: 536px;
+    height: 16px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #fff;
+    line-height: 15px;
+    font-weight: normal;
+    letter-spacing: 0.069em;
 }
