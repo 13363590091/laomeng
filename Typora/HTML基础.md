@@ -171,7 +171,7 @@ Hyper Text Markup Language （超文本标记语言）在普通文本的基础�
       * hidden        表示隐藏域
       * submit 提交按钮
       * reset 重置按钮
-  * button 普通按钮
+      * button 普通按钮
     * name         表示提交给后台的字段名
       *复选框的name值后面必须跟上[]结束 
     ![image-20200622094529438](C:\Users\Fengjinlong\AppData\Roaming\Typora\typora-user-images\image-20200622094529438.png)
