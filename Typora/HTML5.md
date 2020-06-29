@@ -27,6 +27,7 @@
   * address        地址信息
   * time              时间信息
   * progress      进度
+  * 
 
 ##### 功能标签 
 
@@ -36,3 +37,15 @@
 ##### 表单类型
 * input
   * type
+    * range           滑块
+
+* 表单属性
+  * form 指定当前控件所在的表单
+  * autofocus 自动获得焦点
+  * placeholder 设置表单控件提示文字
+  * required 表示当前的表单控件是必填项
+  * patter 使用正则表达式规定输入格式
+  * number 和 range  
+    * min 最小值
+    * max 最大值
+    * step 步进值
