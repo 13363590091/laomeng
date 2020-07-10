@@ -270,6 +270,7 @@ h6 {
     height: 469px;
     padding-top: 49px;
     background-color: #fff;
+    min-width: 1320px;
 }
 
 .ser-title {
@@ -284,14 +285,17 @@ h6 {
 }
 
 .ser-title2 {
-    width: 94px;
+    width: 96px;
     height: 22px;
     margin: 0 auto;
     font-family: SourceHanSansCN-Regular;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 22px;
-    letter-spacing: -0.027em;
+    letter-spacing: 0.035em;
+    background-color: cyan;
     margin-top: 20px;
+    color: #000000;
+    opacity: 0.65;
 }
 
 .ser-title3 {
@@ -456,14 +460,16 @@ h6 {
 }
 
 .case-title2 {
-    width: 94px;
+    width: 100px;
     height: 22px;
     margin: 0 auto;
     font-family: SourceHanSansCN-Regular;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 22px;
-    letter-spacing: -0.027em;
+    letter-spacing: 0.035em;
     margin-top: 20px;
+    color: #000000;
+    opacity: 0.65;
 }
 
 .case-title3 {

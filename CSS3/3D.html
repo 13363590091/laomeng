@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .scene {
+            width: 500px;
+            height: 500px;
+            border: 1px solid aquamarine;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            perspective: 1000px;
+            margin: auto;
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            background: url(../三杉/imgs/pic1.png) no-repeat center/cover;
+            transition: all 1s;
+            margin: auto;
+            margin-top: 200px;
+            margin-left: 200px;
+
+        }
+
+        .scene:hover .item {
+            /* transform: translateZ(100px); */
+            /* transform: rotateX(30deg); */
+            transform: rotate3d(1, 1, 0, 45deg);
+            /* 设置位移移动空间向量 第一个值第二个值为一代表沿着X、Y旋转 */
+            transform: scale3d(1.5, 1.5, 1.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene">
+        <div class="item"></div>
+    </div>
+</body>
+
+</html>

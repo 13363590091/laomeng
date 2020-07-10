@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #one {
+            width: 100px;
+            height: 100px;
+            border: 1px solid aquamarine;
+            color: black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var ane = document.getElementById("one");
+            var num = prompt("请输入要查询的成绩");
+            if (num >= 90 && num <= 100) {
+                ane.style.color = "black";
+                ane.innerText = "优秀";
+            } else if (num >= 75 && num <= 89) {
+                ane.style.color = "green";
+                ane.innerText = "良好";
+            } else if (num >= 60 && num <= 74) {
+                ane.style.color = "blue";
+                ane.innerText = "中";
+            } else if (num >= 0 && num <= 59) {
+                ane.style.color = "red";
+                ane.innerText = "不及格";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="one">
+        显示
+    </div>
+</body>
+
+</html>

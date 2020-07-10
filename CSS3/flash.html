@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes rotate {
+
+            /* 后面写动画的名字 */
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(0px);
+            }
+
+            50% {
+                transform: translateX(300px);
+            }
+
+
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: salmon;
+            margin-top: 100px;
+            animation-name: rotate;
+            animation-duration: 3s;
+            animation-delay: 1s;
+            animation-timing-function: linear;
+            /* 速度 */
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            /* 迭代运行几次    infinite无限次*/
+        }
+
+        .item:hover {
+            animation-play-state: paused;
+            animation: ;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            animation-name: move;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item"></div>
+    <div class="box"></div>
+</body>
+
+</html>

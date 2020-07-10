@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            color: black;
+        }
+
+        a:active {
+            color: red;
+        }
+
+        a:hover {
+            color: royalblue;
+        }
+
+        a:visited {
+            color: yellow;
+        }
+
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            margin-left: 50px;
+            margin-top: 50px
+        }
+
+
+        .one:hover {
+            width: 200px;
+            height: 200px;
+            background-color: thistle;
+        }
+
+        p {
+            color: tomato;
+        }
+
+        p::first-line {
+            color: violet;
+        }
+
+        p::first-letter {
+            color: teal;
+        }
+
+        input:focus {
+            background-color: thistle;
+        }
+
+        input:disabled {
+            border: 1px solid red;
+        }
+
+        input:enabled {
+            border: 1px solid blue;
+        }
+
+        ul>li.one {
+            /*li类名为one的*/
+            background-color: red;
+        }
+
+        ul>li:not(.one) {
+            /*括号里面为选择器 选择未被选择器选择的*/
+            background-color: rosybrown;
+        }
+
+        .box::selection {
+            color: royalblue;
+        }
+
+        .box::before {
+            content: "添加内容 ";
+            color: royalblue;
+        }
+
+        .box::after {
+            content: block;
+            width: 100px;
+            height: 100px;
+            color: salmon;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="one"></div>
+
+    <a href="www.baidu.com">lsandjihasjkfd</a>
+    <p>一段文字<br>一段文字</p>
+    <form action="">
+        <input type="text" disabled>
+        <input type="text">
+        <input type="text">
+    </form>
+    <ul>
+        <li class="one"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <textarea name="" id="" cols="30" rows="10"
+        class="box">dhasiouhklsjdgfjklsadyfvposdanbviudhfl;isadyghvdsgbvil</textarea>
+</body>
+
+</html>

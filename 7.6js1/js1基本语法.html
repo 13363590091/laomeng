@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .one {
+        width: 200px;
+        height: 200px;
+        border: 1px solid aquamarine;
+    }
+</style>
+<script>
+    /*
+    1.书写的方式
+    2.外部js文件
+    */
+    window.onload = function () {
+        var div = document.querySelector("div");
+        div.onclick = function () {
+            div.style.width = "500px";
+            div.style.border = "10px solid";
+        }
+    }
+</script>
+
+<body>
+    <div class="one">
+
+    </div>
+</body>
+
+</html>

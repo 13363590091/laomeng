@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes rotate {
+            from {
+                transform: rotate3d(1, 1, 0, 0deg);
+            }
+
+            to {
+                transform: rotate3d(1, 1, 0, 360deg);
+            }
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .scene {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+            perspective: 1000px;
+            /* perspective-origin: left bottom; */
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 150px;
+            transform-style: preserve-3d;
+            /* transition: all 3s; */
+            animation-name: rotate;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .scene:hover .box {
+            /* transform: rotate3d(1, 1, 0, 360deg); */
+        }
+
+        .box .face {
+            width: 200px;
+            height: 200px;
+            box-shadow: 0 0 15px 15px #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+        }
+
+        .face:nth-child(1) {
+            /* background-color: cornflowerblue; */
+            background-image: linear-gradient(to right, red 0, red 20%, orange 20%, orange 40%, yellow 40%,
+                    yellow 60%, green 60%, green 80%, skyblue 80%);
+            transform: translateX(-100px) rotateY(90deg);
+
+        }
+
+        .face:nth-child(2) {
+            /* background-color: rgb(114, 218, 104); */
+            background-image: linear-gradient(to right, red 0, red 20%, orange 20%, orange 40%, yellow 40%,
+                    yellow 60%, green 60%, green 80%, skyblue 80%);
+            transform: translateY(100px) rotateX(90deg);
+        }
+
+        .face:nth-child(3) {
+            /* background-color: salmon; */
+            background-image: linear-gradient(to right, red 0, red 20%, orange 20%, orange 40%, yellow 40%,
+                    yellow 60%, green 60%, green 80%, skyblue 80%);
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        .face:nth-child(4) {
+            /* background-color: rgb(86, 51, 214); */
+            background-image: linear-gradient(to right, red 0, red 20%, orange 20%, orange 40%, yellow 40%,
+                    yellow 60%, green 60%, green 80%, skyblue 80%);
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        .face:nth-child(5) {
+            /* background-color: rgb(231, 20, 20); */
+            background-image: linear-gradient(to right, red 0, red 20%, orange 20%, orange 40%, yellow 40%,
+                    yellow 60%, green 60%, green 80%, skyblue 80%);
+            transform: translateZ(-100px);
+        }
+
+        .face:nth-child(6) {
+            /* background-color: rgb(145, 78, 231); */
+            background-image: linear-gradient(to right, red 0, red 20%, orange 20%, orange 40%, yellow 40%,
+                    yellow 60%, green 60%, green 80%, skyblue 80%);
+            transform: translateZ(100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene">
+        <div class="box">
+            <div class="face"></div>
+            <div class="face"></div>
+            <div class="face"></div>
+            <div class="face"></div>
+            <div class="face"></div>
+            <div class="face"></div>
+        </div>
+    </div>
+</body>
+
+</html>

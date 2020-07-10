@@ -74,79 +74,77 @@
         }
 
         .gallery>div:hover>img {
-            transform: scale(1.5, 1.5);
-            transition: .3s transform;
-        }
 
-        .cf:before,
-        .cf:after {
-            display: table;
-            content: "";
-            line-height: 0;
-        }
 
-        .cf:after {
-            clear: both;
-        }
+            .cf:before .cf:after {
+                display: table;
+                content: "";
+                line-height: 0;
+            }
 
-        h1 {
-            margin: 40px 0;
-            font-size: 24px;
-            text-align: center;
-            text-transform: uppercase;
-        }
+            .cf:after {
+                clear: both;
+            }
 
-        footer {
-            margin: 80px 0;
-            text-align: center;
-        }
+            h1 {
+                margin: 40px 0;
+                font-size: 24px;
+                text-align: center;
+                text-transform: uppercase;
+            }
 
-        < !-- 导航栏 -->* {
-            margin: 0;
-            padding: 0;
-        }
+            footer {
+                margin: 80px 0;
+                text-align: center;
+            }
 
-        ul {
-            list-style-type: none;
-            margin: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
+            /*导航栏*/
+            * {
+                margin: 0;
+                padding: 0;
+            }
 
-        li {
-            display: inline-block;
-            /*改动的地方*/
-            width: 80px;
-            padding: 10px;
-            background-color: #ff9137;
-        }
+            ul {
+                list-style-type: none;
+                margin: 20px;
+                text-align: center;
+                font-size: 14px;
+            }
 
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            color: #fff;
-            text-decoration: none;
-        }
+            li {
+                display: inline-block;
+                /*改动的地方*/
+                width: 80px;
+                padding: 10px;
+                background-color: #ff9137;
+            }
 
-        a {
-            display: block;
-        }
+            a:link,
+            a:visited,
+            a:hover,
+            a:active {
+                color: #fff;
+                text-decoration: none;
+            }
 
-        .div_3 {
-            margin-top: 50px;
-            font-size: 40px;
-            text-shadow: 5px 5px 5px #555555, 0px 0px 2px #555555;
-            color: black;
-        }
+            a {
+                display: block;
+            }
 
-        .time2 {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
+            .div_3 {
+                margin-top: 50px;
+                font-size: 40px;
+                text-shadow: 5px 5px 5px #555555, 0px 0px 2px #555555;
+                color: black;
+            }
 
-        .audio {}
+            .time2 {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+
+            .audio {}
     </style>
 
     <script src="prefixfree.min.js"></script>
@@ -166,7 +164,7 @@
         </h1><br>
         <div class="gallery cf">
             <div>
-                <img src="picture/1.jpg.JPG" height="220" />
+                <img src="picture/1.jpg.JPG" height="220" style="" />
             </div>
             <div>
                 <img src="picture/2.jpg.JPG" height="220" />

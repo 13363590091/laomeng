@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: rebeccapurple;
+            background-image: url(../三杉/imgs/pic1.png);
+            background-repeat: no-repeat;
+            transition-property: all;
+            transition-duration: 5s;
+        }
+
+        .one:hover {
+            /* transform: rotate(360deg);*/
+            /* transform: scale(1.5, 1.5); */
+            /* transform: skew(150deg); */
+            transform-origin: 0 0;
+            transform: rotate(90deg);
+        }
+
+        .two {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"> </div>
+    <div class="two"></div>
+</body>
+
+</html>
