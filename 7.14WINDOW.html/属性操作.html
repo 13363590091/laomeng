@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="http://www.baidu.com" title="">睡地上</a>
+    <img src="" alt="">
+    <div class="one"></div>
+    <script>
+        /*
+            1.html 自带的属性 2.html自定义的属性 3.内存当中的属性
+        */
+        //1.自带的属性
+        window.onload = function () {
+            var link = document.querySelector("a");
+            link.href = "http://uekedu.com";
+            link.title = "标签"
+            var img = document.querySelector("img");
+            img.src =
+                "https://k-static.6789.com/utuku/img1/650x0/news/20200709/fcce9877-eda0-4295-9782-98c26a0f009d.png"
+        }
+        //2.自定义的属性
+        var defi = document.querySelector(".one");
+        defi.aa = "bb";
+        console.log(defi.aa);
+        console.log(defi);
+        defi.setAttribute("dd", "bb");
+        console.log(defi.getAttribute("dd"));
+        console.log(defi);
+        //3.对于样式的操作
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var stus = [{
+        //         name: "zhangsan",
+        //         height: 178,
+        //         age: 17
+        //     },
+        //     {
+        //         name: "lisi",
+        //         height: 182,
+        //         age: 16
+        //     },
+        //     {
+        //         name: "wangwu",
+        //         height: 102,
+        //         age: 16
+        //     },
+        //     {
+        //         name: "laoliu",
+        //         height: 102,
+        //         age: 18
+        //     }
+        // ]
+        // var arr = stus.sort(function (a, b) {
+        // if (a.height < b.height)
+        //     return -1;
+        // if (a.height > b.height) {
+        //     return 1;
+        // }
+        // if (a.height = b.height) {
+        //     if (a.age > b.age) {
+        //         return 1;
+        //     } else if (a.age < b.age) {
+        //         return -1;
+        //     }
+        //     return 0;
+        //     // }
+        //     return a.height - b.height;
+        // });
+
+        // console.log(arr);
+        // var num = [212, 631, 6, 18, 1231, 13, 13];
+        // var sortnum = num.sort(function (a, b) {
+        // if (a > b) {
+        //     return -1
+        // };
+        // if (a < b) {
+        //     return 1;
+        // };
+        // if (a = b) {
+        //     return 0;
+        // }
+        // return b - a;
+        // });
+        // console.log(sortnum);
+
+        console.log(Math.round(Math.random() * 250));
+
+        function createColor() {
+            return "rgb(" + Math.round(Math.random() * 250) + "," + Math.round(Math.random() * 250) +
+                "," + Math.round(Math.random() * 250) + ")";
+        }
+        var div1 = [{
+                width: 300,
+                height: 20,
+                backgroundcolor: createColor()
+            },
+            {
+                width: 100,
+                height: 20,
+                backgroundcolor: createColor()
+            },
+            {
+                width: 400,
+                height: 20,
+                backgroundcolor: createColor()
+            },
+            {
+                width: 500,
+                height: 20,
+                backgroundcolor: createColor()
+            },
+            {
+                width: 50,
+                height: 20,
+                backgroundcolor: createColor()
+            },
+            {
+                width: 30,
+                height: 20,
+                backgroundcolor: createColor()
+            },
+        ];
+        div1.sort(function (a, b) {
+            return a.width - b.width
+        });
+        div1.forEach(function (div1, index) {
+            var newdiv = document.createElement("div");
+            newdiv.style.width = div1.width + "px";
+            newdiv.style.height = (div1.height + 10) + "px";
+            newdiv.style.background = div1.backgroundcolor;
+            document.body.appendChild(newdiv);
+        });
+        var div2 = div1.reverse();
+        div2.forEach(function (div2, index) {
+            var newdiv = document.createElement("div");
+            newdiv.style.width = div2.width + "px";
+            newdiv.style.height = (div2.height + 10) + "px";
+            newdiv.style.background = div2.backgroundcolor;
+            document.body.appendChild(newdiv);
+        });
+    </script>
+</body>
+
+</html>

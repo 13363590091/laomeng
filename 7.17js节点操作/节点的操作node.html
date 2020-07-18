@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 100px;
+            height: 100px;
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"></div>
+    <br>
+    <script>
+        //一.动态添加元素
+        // 1.获取元素
+        // 2.不存在的元素 
+        // 动态的添加元素删除元素查询元素修改元素
+
+        //动态的添加元素
+        // js 除了 document document.body
+        //其他的所有元素都必须通过对应的方法获取
+        var div1 = document.querySelector(".one"); //已经存在的
+        var div = document.createElement("div"); //创建一个 数据层面都存在
+        div.innerHTML = "wo";
+        div.setAttribute("aa", "bb");
+        div.style.cssText = "width:200px;height:200px;background:red;";
+
+        //父元素.appendChild(div); 父元素最后追加一个子元素
+        document.body.appendChild(div);
+        //父元素.insertBefore(div,要在他之前的元素); 父元素的前面添加一个div
+        //document.body.insertBefore(div, div1);
+
+
+        //如何创建新的属性 setAttribute()
+        var span1 = document.createElement("span");
+        span1.innerHTML = "sd";
+        //span1.setAttribute("a","b");
+        var aa = document.createAttribute("aa");
+        aa.nodeValue = "bb";
+        span1.setAttributeNode(aa); //设置一个属性的节点
+        document.body.appendChild(span1);
+
+        //文本节点 
+        var text = document.createTextNode("这是文本节点");
+        span1.appendChild(text);
+        //二. 动态删除元素
+        console.log(div1);
+        //document.body.removeChild(div1);
+        //三.替换元素replaceChild(span1, div1); span1替换div1
+        //document.body.replaceChild(span1, div1);
+        //四\如何克隆一个元素
+        // div2.cloneNode(true); true 全部克隆,
+        var div2 = document.querySelectorAll("div")[1];
+        var newdiv = div2.cloneNode(true);
+        document.body.appendChild(newdiv);
+    </script>
+</body>
+
+</html>

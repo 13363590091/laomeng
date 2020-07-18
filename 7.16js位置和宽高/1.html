@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+
+            padding: 0;
+        }
+
+        .out {
+            width: 198px;
+            height: 200px;
+            border: 1px solid aquamarine;
+            margin-left: 200px;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            margin-left: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <div class="inner">
+
+        </div>
+    </div>
+    <script>
+        // 如果一个元素没有设置position属性， 那么 left 、、相对于有定位属性的父元素，没有定位属性的父元素-body
+        //如果position 值是relative left，top是相互对于自己原来的位置的
+        //值是absolute 相对与有具有定位属性的父元素
+
+
+        var div = document.querySelector(".out");
+        var inner = document.querySelector(".inner");
+        console.log(getComputedStyle(div, null).marginLeft);
+        console.log(div.offsetLeft); //真实的距离   获得元素在页面中真正的位置
+        console.log(inner.offsetLeft);
+        console.log("get:   " + getComputedStyle(div, null).width);
+        console.log("get:   " + getComputedStyle(div, null).border);
+        console.log("off:   " + div.offsetWidth); //width包含边框  内边距
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>span</span>
+    <div class="two">div</div>
+    <div class="two">div</div>
+    <div>div</div>
+    <div id="one">div</div>
+    <form action="">
+        <input type="text" name="" id="">
+    </form>
+    <script>
+        /*一 . html 元素转换为javascript对象
+         1.通过标签名获取 document.getElementsByTagName("") ;
+        返回值是一个集合类数组 要分开处理
+      
+        */
+        var divs = document.getElementsByTagName("div");
+        console.log(divs);
+        /*  
+            2.通过id来获取  每个页面id值是唯一的 getElementById("");
+        */
+        var one = document.getElementById("one");
+        console.log(one);
+        //只能获取一个
+        /*  
+            3.通过类名获取  得到的也是一个类数组 getElementsByClassName("");
+        */
+        var two = document.getElementsByClassName("two");
+        console.log(two);
+        /*  
+            4.各种选择器来查询 
+            querySelector("");
+            css能用什么选择器 这个方法就能用什么选择器来获取 
+            //获得第一个元素对象
+        */
+        var two1 = document.querySelector(".two");
+        var two2 = document.querySelectorAll(".two");
+        var div = document.querySelectorAll("div");
+        console.log(div);
+        console.log(two1);
+        console.log(two2);
+
+
+        //var arr =[1,2,3,4];
+        // var arr1 = {
+        //     0: "1",
+        //     1: "2",
+        //     2: "3",
+        //     length: 3
+        // }; //json 格式 类数组对象
+        // console.log(arr1 instanceof Array);
+        //类数组转换为数组 call()  this 指针
+        //var newDivs = Array.prototype.slice.call(divs);
+        console.log(divs);
+        console.log(divs instanceof Array);
+        var newDivs = Array.from(divs);
+        console.log(newDivs instanceof Array);
+        console.log(newDivs);
+        newDivs.forEach(function (value, index) {
+            value.innerHTML = index;
+
+        });
+    </script>
+
+</body>
+
+</html>

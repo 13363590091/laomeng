@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border: 1px solid orange;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body style="height: 2000px;width: 4000px;">
+    <div class="one">
+        wojd <br>
+        wojd <br>
+        wojd <br>
+        wojd <br>a
+        wojd <br>g
+        wojd <br>s
+        wojd <br>f
+        wojd <br>sd
+        wojd <br>ss
+        wojd <br>s
+        wojd <br>h
+        wojd <br>woasdasjd <br>wsadasojd <br>wsdaojd <br>wojd <br>wojdsaasd <br>wodasjd <br>wojd <br>wojd <br>wojd
+        <br>wojd
+        <br>dasdawojd <br>wojasdad <br>wojd <br>wojfg <br>wdasojd <br>
+    </div>
+    <script>
+        //一般不操作横向的滚动条 用户的习惯
+        var div = document.querySelector("div");
+
+        // console.log(div);
+        // document.onclick = function () {
+        //     div.scrollTop = 100; //元素的滚动条设置
+        //     //document.documentElement.scrollTop = 300;//操作浏览器的滚动条
+        // } //
+        //滚动条设置
+        document.onscroll = function () {
+            console.log(document.documentElement.scrollTop);
+        }
+    </script>
+</body>
+
+</html>

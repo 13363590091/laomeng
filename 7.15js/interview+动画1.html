@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid slateblue;
+            background-color: slategrey;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="按钮">
+    <br><br>
+    <div class="box">
+    </div>
+    <script>
+        //面试题目
+        // var num = 100;
+
+        // function a() {
+        //     var num = 0;
+        //     return function () {
+        //         num++;
+        //         console.log(num);
+
+        //     }
+        // }
+        // var b = a();
+        // console.log(b);
+        // b();
+        // b();
+        // b();
+        // b();
+
+        // console.log(num);
+        var div1 = document.querySelector("div");
+        var btn = document.querySelector("input");
+
+        btn.onclick = function () {
+            animate(div1, "width", 400, 5, function () {
+                animate(div1, "width", 200, -5);
+            }); //封装成函数
+            animate(div1, "height", 400, 5, function () {
+                animate(div1, "height", 200, -5);
+            }); //封装成函数
+        }
+
+        function animate(obj, attr, end, speed, callback) {
+            var t = setInterval(() => {
+                var start = parseInt(getComputedStyle(obj, null)[attr]);
+                console.log(start);
+                //var obh={name:"zhangsan"}1.obj.name 2.obj["name"]
+                var val = start + speed;
+
+                if (speed > 0) {
+                    if (val > end) {
+                        val = end;
+                        clearInterval(t);
+                        if (callback) {
+                            callback();
+                        }
+                    }
+                } else {
+                    if (val < end) {
+                        val = end;
+                        clearInterval(t);
+                        if (callback) {
+                            callback();
+                        }
+                    }
+                }
+                obj.style[attr] = val + "px";
+            }, 50);
+        }
+        /*
+        var speed = 5;
+        var flag = true;
+        btn.onclick = function () {
+            if (!flag) {
+                return;
+            }
+            flag = false;
+            var t = setInterval(function () {
+                var width = parseInt(getComputedStyle(div1, null).width);
+                var height = parseInt(getComputedStyle(div1, null).height);
+
+                var widths = width + speed;
+                var heights = height + speed;
+
+                if (width > 400) {
+                    widths = 400;
+                    heights = 400;
+                    clearInterval(t);
+                    var t1 = setInterval(function () {
+                        var width = parseInt(getComputedStyle(div1, null).width);
+                        var height = parseInt(getComputedStyle(div1, null).height);
+
+                        var widths = width - speed;
+                        var heights = height - speed;
+                        if (width < 200) {
+                            widths = 200;
+                            heights = 200;
+                            clearInterval(t1);
+                            flag = true;
+                        }
+                        div1.style.width = widths + "px";
+                        div1.style.height = heights + "px";
+                    }, 50)
+                }
+                console.log(widths);
+                div1.style.width = widths + "px";
+                div1.style.height = heights + "px";
+            }, 50);
+        }*/
+    </script>
+</body>
+
+</html>

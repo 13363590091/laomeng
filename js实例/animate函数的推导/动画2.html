@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="aniMath.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid darkcyan;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="anniu">
+    <div class="box"></div>
+    <script>
+        //1.程序的访问 中间算法 由快到慢的动画方式
+        //匀速运动 速度一定
+        //时间可控
+        //2.如何一次运行多个属性
+        var btn = document.querySelector("input");
+        var div = document.querySelector("div");
+        btn.onclick = () => {
+            //animate(div, "width", 500, 1000);
+            animate(div, {
+                width: 400,
+                height: 400,
+                margin: 400,
+            }, 400, Tween.Linear);
+        }
+
+        function animate(obj, attrObj, duration, fn) {
+            clearInterval(obj.t);
+            //参数初始化
+            if (obj.nodeType != 1) {
+                console.error("对象的类型不对！");
+                return;
+            }
+
+            var start = {};
+            var change = {};
+            var time = 0;
+            var fn = fn || Tween.Linear;
+
+            for (var i in attrObj) {
+                start[i] = parseInt(getComputedStyle(obj, null)[i]);
+                change[i] = attrObj[i] - start[i];
+            }
+
+            console.log(start);
+            console.log(change);
+
+            obj.t = setInterval(function () {
+                time += 50;
+                for (var i in attrObj) {
+                    obj.style[i] = fn(time, start[i], change[i], duration) + "px";
+
+                }
+                if (time >= duration) {
+                    for (var i in attrObj) {
+                        obj.style[i] = attrObj[i] + "px";
+                    }
+                    clearInterval(obj.t);
+                }
+
+            }, 50);
+        }
+
+        /*
+                function animate(obj, attr, end, duration) {
+                    var start = parseInt(getComputedStyle(obj, null)[attr]);
+                    var change = end - start;
+                    var time = 0;
+                    var t = setInterval(function () {
+                        time += 50;
+                        obj.style[attr] = Tween.Bounce.easeOut(time, start, change, duration)+"px";
+                        if (time >= duration) {
+                            obj.style[attr] = end + "px";
+                            clearInterval(t);
+                        }
+                    }, 50);
+                }*/
+        /*
+                function animate(obj, attr, end) {
+                    setInterval(function () {
+                        var start = parseInt(getComputedStyle(obj, null)[attr]);
+
+                        var speed = end - start > 0 ? Math.ceil((end - start) / 5) : Math.floor((end - start) / 5);
+                        var val = start + speed;
+                        div.style[attr] = val + "px";
+                        if (val == end) {
+                            clearInterval(t);
+
+                        }
+                    }, 50)
+                    */
+        //}
+    </script>
+</body>
+
+</html>

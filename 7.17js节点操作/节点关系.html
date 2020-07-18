@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="one">sdsad</div>
+        <div class="two">
+            <a href="" class="aa ">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+        </div>
+        <div class="three"></div>
+    </div>
+    <span>sdsa</span>
+    <!--sds-->
+
+    <!--span是div下一个节点-->
+    <script>
+        // 一.html文档中的几种节点
+        // 中文名称    节点名称    节点值    节点类型
+        //            nodeName  nodeValue nodeType
+        // 元素节点    标签名      null        1
+        // 属性节点    属性名     属性值        2                      
+        // 文本节点    $text      null        3
+        // 注释节点     
+        // document
+        //二.节点关系
+        //父亲 孩子 兄弟(上一个 下一个)
+        var two = document.querySelector(".two");
+
+        //1.获取所有的子元素
+        console.log(two.childNodes.length);
+        console.log(two.childNodes[0].nodeName);
+        console.log(two.firstElementChild.className);
+        //2.父元素
+        //parentNode parentElement
+        //console.log(two.parentNode.className);
+        //console.log(two.parentElement.getAttributeNode("class").nodeName)
+        //3.兄弟元素
+        console.log(two.previousElementSibling.className); //上一个
+        console.log(two.nextElementSibling.className); //下一个
+        console.log(two.parentElement.nextSibling.nextSibling.innerHTML); //span中间文字
+        //7.17本周总结
+        //bom Dom window对象
+        //document对象 文档中的内容样式属性进行操作 动画
+        // 动态的操作元素  
+        //node 节点的关系  追加内容添加了可能性,后台的对接添加了可能性
+    </script>
+</body>
+
+</html>

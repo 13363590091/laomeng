@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //
+        var arr = [1, 614, 13, 544, 3343, 55, 1123, 1215, 11];
+
+        function findNum(arr) {
+            var a = Math.round(Math.random() * (arr.length - 1));
+            return a;
+        }
+        var a = findNum(arr);
+        console.log(arr[a], a);
+        //输出800-1500的一个随机值
+        var b = Math.round(Math.random() * 700 + 800);
+        console.log(b);
+        //解构数组
+        var [x, y, z] = [1, 2, 3];
+        //...展开运算符
+        var arr1 = [1, 133, 31, 36, 641, 612, 155, 1653, 3454];
+        console.log(...arr);
+        console.log(arr);
+        var arr3 = [1, 5, 2, 3, 4];
+
+        function fn(a, b, c, d, e) {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(d);
+            console.log(e);
+        }
+        fn(...arr3);
+        console.log(Math.max(...arr1));
+        console.log(Math.max(1, 133, 31, 36, 641, 612, 155, 1653, 3454));
+    </script>
+</body>
+
+</html>

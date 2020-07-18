@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Human() { //arguments 是获取所有的实参
+        //     var arr = arguments;
+        //     for (let i = 0; i < arguments.length; i++) {
+        //         this[i] = arguments[i];
+        //     }
+        //     console.log(arr.length);
+        //     this.findMax = function () {
+        //         var Num = this[0];
+        //         for (var i = 0; i < arr.length; i++) {
+        //             if (this[i] > Num) {
+        //                 Num = this[i];
+        //             }
+        //         }
+        //         console.log(Num);
+        //         return Num;
+        //     }
+        //     this.sort = function () {
+        //         var temp = arr[0];
+        //         for (let i = 0; i < arr.length; i++) {
+        //             for (j = i + 1; j < arr.length; j++) {
+        //                 if (arr[i] > arr[j]) {
+        //                     var temp = arr[i];
+        //                     arr[i] = arr[j];
+        //                     arr[j] = temp;
+        //                 }
+        //             }
+        //         }
+        //         console.log(arr);
+        //     }
+        // }
+
+        // var person = new Human(1, 1456131, 65, 1531, 351, 35, 165);
+        // var a = person.findMax();
+        // console.log(a);
+        // person.sort();
+
+        // function myclass() {
+
+        // }
+        // myclass.prototype = { //jason 格式
+        //     name: "zhangsan",
+        //     age: 12,
+        // say: () => {
+        //     console.log(this.name);
+        // }
+        // say() {
+        //     console.log(this.name);
+        // }
+        // say: function () {
+        //     console.log(this.name);
+        // }
+        // }
+        //
+        // var one = new myclass();
+        // one.say();
+
+        // 
+
+        // function myobj() {
+        //     function myclass() {
+        //         var name = Symbol();
+        //         this[name] = "zhangsan";
+        //         this.say = function () {
+        //             console.log(this[name]);
+        //         }
+        //     }
+        //     myclass.prototype = {
+        //         age: 12,
+        //     }
+        //     return new myclass();
+        // }
+        // var obj = new myobj();
+        // obj.say();
+        // console.log(obj[name]); //访问不到  只有内部知道name的值
+        // //Symbol 属性的保护和封装
+
+        // function person(name, age, sex = "man") {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        // }
+        // person.prototype = {
+        //     say: function () {
+        //         console.log("我的名字叫" + this.name);
+        //     },
+        //     eat: function () {
+        //         console.log("吃饭");
+        //     }
+        // }
+
+        // function student(no) {
+        //     this.no = no;
+
+        // }
+
+        // //继承 1.完全继承 继承父类的所有属性和方法
+        // student.prototype = new person();
+        // // 2.部分继承 继承父类的原型的属性和方法
+        // student.prototype.study = function () {
+
+        //     console.log("学习");
+
+        // }
+        // var lihao = new student(123);
+        // lihao.name = "李浩";
+        // lihao.sex = "woman";
+        // lihao.age = "19";
+        // console.log(lihao.name + "   " + lihao.age + "   " + lihao.sex + "   " + lihao.no);
+
+        // lihao.study();
+        // lihao.say();
+
+        /*还是用函数作为类去实现 新的语法会有风险，某一些浏览器仍然不识别这种新的语法
+        我们通过新的语法写完程序后，编译成任何浏览器都识别的语法
+        */
+
+        class person {
+
+            constructor(name, age, sex) {
+                var name = Symbol();
+                this.aa = name;
+                this[this.aa] = name;
+                this[age] = age; //私有
+                this.sex = sex;
+                console.log(this[age]);
+            }
+            say() {
+                console.log("woshi");
+            }
+        }
+        class stu extends person {
+            constructor(name, age, sex) {
+                super(name, age, sex)
+            }
+        }
+
+        var obj1 = new person("zhansan", 13, "man");
+        for (var i in obj1) {
+            console.log(i);
+        }
+    </script>
+</body>
+
+</html>

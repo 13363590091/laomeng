@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid saddlebrown;
+            position: fixed;
+        }
+
+        .btn {
+            float: right;
+            widows: 25px;
+            height: 25px;
+            font-size: 20px;
+            border: 1px solid sienna;
+            line-height: 25px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="btn">X</span>
+    </div>
+    <script src="aniMath.js"></script>
+    <script>
+        var box = document.querySelector(".box");
+        var btn = document.querySelector(".btn");
+        var speedx = 10;
+        var speedy = 10;
+        console.log(box.offsetLeft);
+        console.log(box.offsetTop);
+        console.log(btn);
+
+        function move() {
+            var left = box.offsetLeft;
+            var top = box.offsetTop;
+            var lefts = left + speedx;
+            var tops = top + speedy;
+
+            //判断边界值
+            if (tops > document.documentElement.clientHeight - box.offsetHeight) {
+                tops = document.documentElement.clientHeight - box.offsetHeight;
+                speedy = -speedy;
+            }
+            if (tops < 0) {
+                tops = 0;
+                speedy = -speedy;
+
+            }
+            if (lefts > document.documentElement.clientWidth - box.offsetWidth) {
+                lefts = document.documentElement.clientWidth - box.offsetWidth;
+                speedx = -speedx;
+            }
+            if (lefts < 0) {
+                lefts = 0;
+                speedx = -speedx;
+            }
+            box.style.left = lefts + "px";
+            box.style.top = tops + "px";
+        }
+        var t = setInterval(move, 50);
+        box.onmouseover = function () {
+            clearInterval(t);
+
+        }
+        box.onmouseout = function () {
+            t = setInterval(move, 50);
+        }
+        var flag = true;
+        btn.onclick = function () {
+            if (flag) {
+                box.onmouseout = null;
+                animate(box, {
+                    width: 60,
+                    height: 40,
+                    left: document.documentElement.clientWidth - 90,
+                    top: document.documentElement.clientHeight - 70
+                }, 500);
+                clearInterval(t);
+                btn.innerHTML = "口";
+                flag = false;
+            } else {
+                btn.innerHTML = "X";
+                animate(box, {
+                    width: 100,
+                    height: 100,
+                    left: 0,
+                    top: 0
+                }, 500, Tween.Linear, function () {
+                    alert(1);
+                    t = setInterval(move, 50);
+                });
+
+                flag = true;
+
+            }
+        }
+    </script>
+</body>
+
+</html>

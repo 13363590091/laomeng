@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            /* transition: width 1s ease-in; */
+        }
+
+        /* 状态改变 不是动画 */
+        /* div:hover {
+            width: 400px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script src="aniMath.js"></script>
+    <script>
+        var div1 = document.getElementsByTagName("div")[0];
+        console.log(div1);
+        var speed = 5;
+        // setInterval(function () {
+        //     var width = div.getComputedStyle(div, null).width;
+        //     div.style.width = width + "px";
+        // })
+
+
+        div1.ondblclick = function () {
+            animate(div1, {
+                width: 400
+            }, 500, Tween.Linear, function () {
+                div1.style.background = "blue"
+            });
+        }
+        // div1.onmouseover = function () {
+        //     div1.style.width = "400px";
+        // }
+        // div1.onmouseout = function () {
+        //     div1.style.width = "200px";
+        // }
+        // 变量和数据类型
+        // 运算符
+        //window setInterval innerWidth alert(1); prompt confirm
+        //location 地址栏 ->属性和方法
+        //history   历史记录
+        //document 文档 获取元素->js对象
+        //     标签 
+        //     属性  属性操作: 1.对象.属性操作 2.自定义属性 3.内存当中的属性
+        //                  哪些样式的操作能实现什么效果
+        //     样式  获取样式 getcomputed() //都能获取到
+        //          obj.style.样式  行内样式
+        //          位置尺寸 offsetLeft
+        //          哪些样式的操作能实现什么效果
+        //     内容
+        //动画 (就是对样式属性连续不断的操作) animate方法操作dom的方式
+        //函数封装
+
+        //滚动条 
+    </script>
+</body>
+
+</html>
