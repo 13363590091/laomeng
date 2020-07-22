@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            height: 200px;
+            width: 200px;
+            border: 1px solid sandybrown;
+        }
+
+        .two {
+            height: 100px;
+            width: 100px;
+            border: 2px solid steelblue;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="">
+        // 文档流       浏览器渲染html的顺序
+        // 程序执行流程  顺序执行 选择执行 循环执行
+        // 作用域       由里到外
+        // 原型继承链    Object
+        // 事件流       冒泡型事件流 默认的事件流
+        //               由最确定的事件源依次向外扩散
+        //               子元素出发事件->父元素会接受事件
+        //               也会带来麻烦、也有好处
+        //               如何解决麻烦->是怎么导致的?
+        //             捕获型事件流
+        //               由不确定的元素向确定的元素聚集，由最外层的元素向里层传播
+        //               addEventListener(1,true);
+        //               结论是：只要有动作，浏览器就能捕获->确定谁来触发
+        //                      完全没有用处,只存在面试 效率比较慢
+    </script>
+    <div class="one" onclick="alert('.one')">
+        <div class="two" onclick="alert('two')">
+
+        </div>
+    </div>
+    <script>
+        // function check(e, target) {
+        //     if (e.type == "mouseover") {
+        //         return (!target.container(e.fromElement) && e.toElement == target)
+        //     } else if (e.type == "mouseout") {
+        //         return ()
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

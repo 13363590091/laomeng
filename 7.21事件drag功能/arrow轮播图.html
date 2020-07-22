@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .out_arrow_wheel {
+
+            width: 1080px;
+            height: 365px;
+            position: relative;
+            margin: auto;
+        }
+
+        .arrow_wheel {
+            overflow: hidden;
+            position: relative;
+            width: 1080px;
+            height: 365px;
+            margin: auto;
+        }
+
+
+
+        .arrow_wheel_box {
+            height: 100%;
+        }
+
+        .arrow_wheel_box li {
+
+            height: 365px;
+            width: 250px;
+            margin: 0 10px;
+            float: left;
+        }
+
+        .arrow_wheel li a {
+            display: block;
+            border: none;
+            width: 250px;
+            height: 365px;
+        }
+
+        .arrow_wheel li a img {
+            width: 250px;
+            height: 365px;
+        }
+
+        .left {
+            height: 100%;
+            position: absolute;
+            font-size: 80px;
+            line-height: 365px;
+            left: -80px;
+            color: gray;
+            font-weight: bold;
+            transition: color 0.8s ease;
+        }
+
+        .right {
+            height: 100%;
+            position: absolute;
+            font-size: 80px;
+            line-height: 365px;
+            right: -80px;
+            color: gray;
+            font-weight: bold;
+            transition: color 0.8s ease;
+        }
+
+        .left:hover {
+            color: gold;
+        }
+
+        .right:hover {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out_arrow_wheel">
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+        <div class="arrow_wheel">
+            <ul class="arrow_wheel_box">
+                <li>
+                    <a href="">
+                        <img src="img/1.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/2.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/3.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/4.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/5.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="img/6.png" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="aniMath.js"></script>
+    <script>
+        var arrow_wheel_box = document.querySelector(".arrow_wheel_box")
+        var arrow_wheel = document.querySelector(".arrow_wheel");
+        var num = arrow_wheel_box.childElementCount; //子元素的数量
+        arrow_wheel_box.style.width = num * 270 + "px";
+        var leftBtn = document.querySelector(".left");
+        var rightBtn = document.querySelector(".right");
+        //左边按钮
+        leftBtn.onclick = function () {
+            animate(arrow_wheel_box, {
+                marginLeft: -270
+            }, 1000, Tween.Linear, function () {
+                arrow_wheel_box.appendChild(arrow_wheel_box.firstChild);
+                arrow_wheel_box.style.marginLeft = 0;
+            });
+        }
+        rightBtn.onclick = function () {
+            arrow_wheel_box.insertBefore(arrow_wheel_box.lastChild, arrow_wheel_box.firstChild);
+            arrow_wheel_box.style.marginLeft = -270 + "px";
+            animate(arrow_wheel_box, {
+                marginLeft: 0
+            }, 1000, Tween.Linear);
+        }
+        leftBtn.onmouseover = function () {
+            clearInterval(t);
+        }
+        leftBtn.onmouseout = function () {
+            t = setInterval(move, 3000);
+        }
+        rightBtn.onmouseover = function () {
+            clearInterval(t);
+        }
+        rightBtn.onmouseout = function () {
+            t = setInterval(move, 3000);
+        }
+        arrow_wheel_box.onmouseover = function () {
+            clearInterval(t);
+        }
+        arrow_wheel_box.onmouseout = function () {
+            t = setInterval(move, 3000);
+        }
+        //自己动
+        function move() {
+            animate(arrow_wheel_box, {
+                marginLeft: -270
+            }, 1000, Tween.Linear, function () {
+                arrow_wheel_box.appendChild(arrow_wheel_box.firstChild);
+                arrow_wheel_box.style.marginLeft = 0;
+            });
+        }
+        var t = setInterval(move, 3000)
+    </script>
+</body>
+
+</html>

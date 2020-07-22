@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script src="../aniMath.js"></script>
+    <script>
+        //点击鼠标位置的获取
+        var div = document.querySelector("div");
+        div.onclick = function (e) { //所有的鼠标事件都可以
+            console.log(e.screenX); //相对屏幕
+            console.log(e.screenY);
+            console.log(e.clientX); //浏览器的距离
+            console.log(e.clientY);
+            console.log(e.offsetX); //相对事件源的距离
+            console.log(e.target); //获得事件源
+        }
+    </script>
+</body>
+
+</html>

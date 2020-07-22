@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="one"></div>
+
+    <script src="../aniMath.js"></script>
+    <script>
+        //点击鼠标位置的获取
+        //选中文字
+        // 如何取消浏览器默认的行为  我们自定义的事件和浏览器的默认行为冲突
+        var div = document.querySelector("div");
+        div.onmousedown = function (e) {
+            var left = e.offsetX;
+            var top22 = e.offsetY;
+            document.onmousemove = function (e) {
+                var leftSo = e.clientX;
+                var topSo = e.clientY;
+                console.log(topSo);
+                div.style.marginLeft = leftSo - left + "px";
+                div.style.marginTop = topSo - top22 + "px";
+                e.preventDefault();
+            }
+            //console.log(topSo);
+            //console.log("leftSo" + (left - leftSo));
+            //console.log("TopSo" + (top - topSo));
+            document.onmouseup = function (e) {
+                document.onmousemove = null;
+                //document.onmouseup = null;
+            }
+        }
+    </script>
+    function drag(){
+    this.x = true;
+    this.y = true;
+    this.side = {
+    x1:"";
+
+    }
+    }
+
+</body>
+
+</html>

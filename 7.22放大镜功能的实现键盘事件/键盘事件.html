@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //键盘事件
+        //很少用在不能输入文本的元素上  通常->表单上
+        document.onkeydown = function (ev) {
+            console.log(String.fromCharCode(ev.which)); //按压下哪个键 //ASCII码转
+            // console.log(String.fromCharCode(ev.keyCode));//获取按下哪个键
+            // console.log(ev.ctrlKey);//按下是否是ctrl键
+            // console.log(ev.shiftKey); //按下是否是shift键
+            // console.log(ev.altKey);//alt
+            //回车 16 空格 32 方向键 （左上右下）37 38 39 40
+
+        }
+        // document.onkeyup = function () {
+        //     console.log("up");
+        // }
+        // document.onkeypress = function () { //按压住
+        //     console.log("press"); //press 键盘按稳了 才触发
+        // }
+    </script>
+</body>
+
+</html>

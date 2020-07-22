@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="">
+        /*鼠标事件
+        click 点击
+        dblclick 双击
+        mouseover 鼠标在上面
+        mouseout 鼠标离开
+        mousedown 按下鼠标左键 
+        mouseup 按下鼠标右键
+        mousemove 鼠标移动
+        鼠标右键事件 // 有兼容性
+        滚轮//兼容性
+
+        键盘事件
+        当键盘按下 当键盘抬起
+
+            浏览器自带的事件
+                onload oncroll onredystatechange ajex
+        事件的构成
+        1.目标对象 事件源
+        2.事件 （交互、动作）
+        3.事件处理程序（干什么事情）
+        4.事件对象
+
+        如何注册一个事件？
+        1.直接量注册
+            //给div添加一个特殊的方法 onclick
+            //div.onclick = function (){
+
+            //}
+            //div.aa =function(){
+                //语法层面上是div添加一个函数
+            //}
+        2.通过标准方式
+                var div =document.querySelector("div");
+                div.addEventListener("click"/"mousedown",function(){
+                    alert(1);
+                },false );一般写false  面试  true
+        3.
+        <div click="alert(10)"></div>
+        //这种混排的方式用法不多见 如果用vue的话 会经常见到这中写法
+
+        两种注册事件的 优劣势
+        1.通过直接量的方式定义事件\通一事件的
+        4.标准注册的事件
+
+        //点击只执行一次 //事件的注册注销
+                div.onclick = function (){
+                    alert(1);
+                    div.onclick = null;
+                }
+                <button id="myBtn"></button>
+            <script type="text/javascript">
+                 var btn=document.getElementById('myBtn');
+                function handle(){
+                    console.log(this);
+                }
+            //兼容到IE9及其以上
+                 btn.addEventListener('click',handle,false);      //添加事件处理程序
+                btn.removeEventListener('click',handle,false);    //移除事件处理程序
+
+                //  ie8及以下
+                btn.attachEvent('onclick',handle);       // 添加
+                btn.detachEvent('onclick',handle);       // 移除
+    </script>
+
+    */
+    </script>
+</body>
+
+</html>
