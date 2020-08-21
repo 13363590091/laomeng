@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div></div>
+
+<body>
+    <script>
+        //console.log(current.getTime(), typeof current.getTime());
+        // console.log(close.getTime(), typeof close.getTime());
+        //console.log(close.getTime() - current.getTime());
+
+        //console.log(time1);
+        // var t = setInterval(function () {
+        //     //console.log(1);
+        //     div.innerHTML = "还剩" + (time1.getDate() - 1) + "天，" + time1.getHours() + ":" + time1.getMinutes() +
+        //         ":" + time1.getSeconds();
+        // }, 30);
+        var div = document.querySelector("div");
+
+        // function mytime() {
+        //     var current = new Date();
+        //     var close1 = new Date(2020, 07, 01, 10, 10, 0);
+        //     var time1 = parseInt((close1.getTime() - current.getTime()) / 1000);
+        //     console.log(parseInt(time1 / (24 * 60 * 60)));
+        //     var d = parseInt(time1 / (24 * 60 * 60));
+        //     var h = parseInt((time1 - d * (24 * 60 * 60)) / (60 * 60));
+        //     var m = parseInt((time1 - d * (24 * 60 * 60) - h * (60 * 60)) / 60);
+        //     var t = parseInt(time1 - d * (24 * 60 * 60) - h * (60 * 60) - m * 60);
+        //     div.innerHTML = d + "   " + h + ":" + m + ":" + t;
+        // }
+        function mytime() {
+            var current = new Date();
+            var close1 = new Date(2020, 07, 01, 10, 10, 0);
+            var time1 = parseInt((close1.getTime() - current.getTime()) / 1000);
+            var d = parseInt(time1 / (24 * 60 * 60));
+            time1 %= time1
+        }
+        setInterval(mytime, 1000);
+        // var showtime = function () {
+        //     //获取当前时间
+        //     var current = new Date();
+        //     //定义秒杀时间
+        //     var seckill = new Date(2020, 7, 1, 10, 10, 20);
+        //     time = seckill.getTime() - current.getTime();
+        //     days = Math.floor(time / (1000 * 60 * 60 * 24)); //计算天数
+        //     hours = Math.floor(time / (1000 * 60 * 60) % 24); //计算小时数
+        //     minutes = Math.floor(time / (1000 * 60) % 60); //计算分钟数
+        //     seconds = Math.floor(time / 1000 % 60); //计算秒数
+        //     var div = document.querySelector("div");
+        //     div.innerHTML = "秒杀倒计时：" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+        // }
+
+        // setInterval(showtime, 1000);
+    </script>
+</body>
+
+</html>

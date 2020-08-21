@@ -250,7 +250,6 @@ background-image: linear-gradient(30deg red, blue);
     * translateX()
     * translateY()
     * translate()
-    * 
   * 旋转
     
     * rotate(45deg)
@@ -264,7 +263,7 @@ background-image: linear-gradient(30deg red, blue);
   * 同时要设置多个转换效果 用空格隔开每个转换函数就可以了。
   * transform-origin 设置位移基准点，可以设置到图形的外部。
   * 斜切
-    * skewX
+    * skewX	
     
     * skewY
     

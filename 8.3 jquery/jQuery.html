@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            border: 20px solid saddlebrown;
+            padding: 10px;
+            margin: 0px;
+        }
+
+        .two {
+            width: 100px;
+            height: 100px;
+            background-color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="two">开始</div>
+    <div class="one">
+    </div>
+    <div class="two">stop/finish</div>
+    <ul>
+        <li>1111</li>
+        <li>1111</li>
+        <li>1111</li>
+        <li>1111</li>
+    </ul>
+    <a href="http://www.baidu.com">1</a>
+    <br>
+    <p><input type="text" /> <span>focusout fire</span></p>
+    <p><input type="password" /> <span>focusout fire</span></p>
+    <script src="../7.31jQuery扩展-队列/jquerymini.js"></script>
+    <script>
+        var one = $(".one");
+        var one1 = document.querySelector(".one")
+        console.log(one.width()) //css设置的高度宽度
+        console.log(one.innerWidth()); // 设置的 +padding\
+        console.log(one.outerWidth()); // 设置的 +padding+border
+        // 插入新的内容 父元素.appendChild
+        // 在某个元素的前面 父元素.insertBefore（ 要插入的元素， 之前的元素）
+        // 删除 父元素.removeChild
+        // 替换 父元素.replaceChild(要替换的， 被替换的)
+        // 克隆 父元素.cloneNode()
+
+        // 设置的 +padding
+        //$("<div><div><span><strong>123</strong></span></div></div>").appendTo($("body"));
+        //子元素.appendTo(父元素)
+        //父元素.append(子元素)或者是追加内容
+        //父元素.preappend(子元素)或者是追加内容    向每个匹配的元素内部前置内容 放到里面的最前面
+
+        //`
+        //`
+        //`
+        //$("div").wrap("<p>1</p>")  unwrap 取消
+        //$("div").wrapInner('<a herf="http://www.baidu.com"></a>') 内部内容被包裹
+        //
+        //empty() 删除匹配的元素集合中所有的子节点。
+        //remove()  从DOM中删除所有匹配的元素。
+        //detach( ) 从DOM中删除所有匹配的元素。这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。与remove()不同的是，所有绑定的事件、附加的数据等都会保留下来。
+
+        //选择器是查找指定查找的内容
+        //筛选是在原有的基础上进一步的筛选和查找   是将新的选择的元素替换掉jQuery对象上的原有元素
+        //过滤 是在##已有##的元素里面进行二次查找   
+        //
+        $("li").css({
+            "color": "red"
+        }).eq(1).css({
+            "color": "blue"
+        })
+        //or .slice(0,2)  .first    .hasClass(".sd") 匹配类名为sd的元素
+        //filter()  字符串 选择器名 dom元素
+        //
+
+
+        //查找 依赖🐟当前的元素,查找其他元素
+        $("li").parent().css({ //parents  所有的前辈元素 parents("body") 指定的父类元素 
+            "border": "1px solid red"
+            //关于修饰文字的属性都有继承的属性
+        })
+        $("ul").children().eq(2).css({ //children  只找子元素
+            "color": "blue"
+        }) //find() 只要是后代全都找
+        //siblings([expr])  用于筛选同辈元素的表达式
+        $("li:eq(0)").siblings().css({
+            "color": "green"
+        })
+
+
+
+        //串联  根据自己的需求决定是否破坏原有的结
+        //add()
+        //$("li:eq(0)").add("li:eq:(1)")  给原有的jQuery对象添加$("li:eq(0)") 添加li:eq(1)  现在jQuery就变成两个元素
+        //addback() 
+
+
+        $("p").focusin(function () {
+            $("input").css({
+                "border": "1px solid red"
+            })
+        }).focusout(function () {
+            $("input").css({
+                "border": "1px solid gray"
+            })
+        });
+
+
+
+        //注册事件 on 
+        //注销事件 off 
+        //执行事件 trigger
+        // on 注册事件的方式,轻松实现事件委派
+        //已经解决了事件流的问题 hover
+        // $("div:eq(0)").hover(function () {
+        //     console.log(1);
+        // }, function () { 
+        //     console.log(2);
+        // })
+        $("div:eq(0)").mouseenter(function () {
+            console.log(2);
+        })
+        var width = $("div:eq(0)").width();
+        var height = $("div:eq(0)").height();
+        var flag = true;
+        //避免多次点击 多次动画 
+        // 可以设置一个flag作为动画回调函数 也可以用finish 直接变为动画最终结果
+        $("div:eq(0)").click(function () {
+            //console.log(1)
+            if (flag == true) {
+                $("div:eq(1)").animate({
+                    width: 50
+                }, 1000).animate({
+                    height: 50
+                }, 1000).animate({
+                    opacity: 0.3
+                }, 1000) //jquery animate 默认的使用了队列
+                flag = false;
+                console.log(flag)
+                return;
+            }
+            if (flag == false) {
+                $("div:eq(1)").animate({
+                    width: 200
+                }, 1000).animate({
+                    height: 200
+                }, 1000).animate({
+                    opacity: 1
+                }, 1000)
+                flag = true
+                return;
+            }
+        })
+        $("div:eq(2)").click(function () {
+            //$("div:eq(1)").stop();
+
+        })
+        //.stop()  终止当前动画 进入下一个动画
+        //.finish() 结束所有动画直接变为最终状态
+
+        // $("div").on("click",function(){
+
+        // })
+        // $("div").on("click", {
+        //     "name": "zhangsan"
+        // }, function (ev) {
+        //     alert(ev.data.name)
+        // })
+        // $("div").click(function () {
+        //     alert(1)
+        // });
+    </script>
+</body>
+
+</html>

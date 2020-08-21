@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            height: 600px;
+            border: 1px solid slategray;
+        }
+
+        td {
+            width: 80px;
+            height: 60px;
+            overflow: hidden;
+            border: 1px solid slategray;
+
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*鼠标事件
+        click 点击
+        dblclick 双击
+        mouseover 鼠标在上面
+        mouseout 鼠标离开
+        mousedown 按下鼠标左键 
+        mouseup 按下鼠标右键
+        mousemove 鼠标移动
+        鼠标右键事件 // 有兼容性
+        滚轮//兼容性    
+
+        键盘事件
+        当键盘按下 当键盘抬起
+
+            浏览器自带的事件
+                onload oncroll onredystatechange ajex
+        事件的构成
+        1.目标对象 事件源
+        2.事件 （交互、动作）
+        3.事件处理程序（干什么事情）
+        4.事件对象
+
+        如何注册一个事件？
+        1.直接量注册
+            //给div添加一个特殊的方法 onclick
+            //div.onclick = function (){
+
+            //}
+            //div.aa =function(){
+                //语法层面上是div添加一个函数
+            //}
+        2.通过标准方式
+                var div =document.querySelector("div");
+                div.addEventListener("click"/"mousedown",function(){
+                    alert(1);
+                },false );一般写false  面试  true
+        3.
+        <div click="alert(10)"></div>
+        //这种混排的方式用法不多见 如果用vue的话 会经常见到这中写法
+
+        两种注册事件的 优劣势
+        1.通过直接量的方式定义事件,，会将前面的事件覆盖
+        2.标准注册的定义事件的方式，可以让同一事件执行不同的事件处理程序
+        3.通过直接量的方式定义的时间，通过直接量= null的方式，来注销事件
+        4.通过标准定义的事件，通过removeEventListerner注销事件，但是注册事件的时候
+        ，事件处理函数，必须有名字
+        //点击只执行一次 //事件的注册注销
+        
+ // 文档流       浏览器渲染html的顺序
+        // 程序执行流程  顺序执行 选择执行 循环执行
+        // 作用域       由里到外
+        // 原型继承链    Object
+        // 事件流       冒泡型事件流 默认的事件流
+        //               由最确定的事件源依次向外扩散
+        //               子元素出发事件->父元素会接受事件
+        //               也会带来麻烦、也有好处
+        //               如何解决麻烦->是怎么导致的?
+        //             捕获型事件流
+        //               由不确定的元素向确定的元素聚集，由最外层的元素向里层传播
+        //               addEventListener(1,true);
+        //               结论是：只要有动作，浏览器就能捕获->确定谁来触发
+        //                      完全没有用处,只存在面试 效率比较慢
+        //改变事件流
+        //1.写一个函数
+        //2.改变html结构的方式 . 事件流->有层级关系,改变成平级关系,加一个一样大小的div 上添加事件
+         第三种 // formElement toElement这两个属性只有mouseover 和mouseout里面有
+        //事件对象 e  e.type formElement toElement
+        //自己写一个函数 代替mouseover mouseout
+        // 如何判断鼠标是不是从内部来的  内部来的 false 不是内部来的 true
+
+
+        //键盘事件
+        //很少用在不能输入文本的元素上  通常->表单上
+        document.onkeydown = function (ev) {
+            console.log(String.fromCharCode(ev.which)); //按压下哪个键 //ASCII码转
+            // console.log(String.fromCharCode(ev.keyCode));//获取按下哪个键
+            // console.log(ev.ctrlKey);//按下是否是ctrl键
+            // console.log(ev.shiftKey); //按下是否是shift键
+            // console.log(ev.altKey);//alt
+            //回车 16 空格 32 方向键 （左上右下）37 38 39 40
+
+        }
+        // document.onkeyup = function () {
+        //     console.log("up");
+        // }
+        // document.onkeypress = function () { //按压住
+        //     console.log("press"); //press 键盘按稳了 才触发
+        //
+           B/S架构 浏览器服务器架构 通过浏览器就可以完成一个应用
+                    优势:即用即走不用安装升级
+                    劣势:不能够很好的调用硬件以及硬件的全部能力   操作效率不高,兼容性不好,数据都在服务器上,交互性不是很流畅
+                    js css html php mysql vue jquery ->打包成c/s架构
+                5G时代 b/s成为首选  (添加东西不需要升级)
+           C/S架构 客户端服务器架构 必须进行安装 C/C++
+                    劣势:更新和升级 用户干预
+                    优势:运行速度快,常用的功能,常用的数据,保存在你的电脑上面,和用户交互性友好,非常
+        事件委派:  
+        1.提高程序的运行效率
+        2.能够对动态的元素进行操作  
+        */
+        //获取所有的单元格
+    </script>
+    <table>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+        <tr>
+            <td>1 </td>
+            <td>2 </td>
+            <td>3 </td>
+            <td>4 </td>
+            <td>5 </td>
+            <td>6 </td>
+            <td>7 </td>
+            <td>8 </td>
+            <td>9 </td>
+            <td>0 </td>
+        </tr>
+    </table>
+    <script>
+        // var tds = document.querySelectorAll("td");
+        // console.log(tds)
+        // // 每个单元格变成可编辑的状态 contenteditable spellcheck 设置能否拼音编辑
+        // for (let i = 0; i < tds.length; i++) {
+        //     tds[i].ondblclick = function () {
+        //         tds[i].setAttribute("contenteditable", true);
+        //         //tds[i].contenteditable = true;
+        //     }
+        //     tds[i].onblur = function () {
+        //         tds[i].removeAttribute("contenteditable");
+        //     }
+        // }
+        var table = document.querySelector("table");
+        table.ondblclick = function (ev) {
+            var target = ev.target;
+            target.setAttribute("contenteditable", true);
+            target.focus(); //双击后直接获得焦点
+            target.onblur = function (ev) {
+                target.removeAttribute("contenteditable");
+            }
+        }
+    </script>
+</body>
+
+</html>

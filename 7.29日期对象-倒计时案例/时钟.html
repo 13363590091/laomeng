@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            height: 200px;
+            width: 200px;
+            border: 2px solid gold;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgb(83, 82, 82);
+            margin: auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+    </div>
+
+</body>
+<script>
+    var clock = document.querySelector(".clock");
+    var clockW = clock.offsetWidth;
+    var clockH = clock.offsetHeight;
+    console.log(clock);
+
+    function creatMark() {
+
+        for (var i = 0; i < 60; i++) {
+            var div = document.createElement("div");
+            //console.log(div);
+
+            div.style.position = "absolute";
+
+
+            if (i % 5 == 0) {
+                div.style.width = "24px";
+                div.style.fontSize = "24px"
+                div.style.height = "15px";
+                div.style.textAlign = "center";
+                div.style.transform = "rotate(" + 6 * i + "deg)";
+                div.style.left = "88px";
+                div.style.color = "green";
+                div.style.top = "-5px"
+                div.style.transformOrigin = "center 105px"
+                switch (i) {
+                    case 0:
+                        div.innerHTML = "12";
+                        break;
+                    case 5:
+                        div.innerHTML = "1";
+                        break;
+                    case 10:
+                        div.innerHTML = "2";
+                        break;
+                    case 15:
+                        div.innerHTML = "3";
+                        break;
+                    case 20:
+                        div.innerHTML = "4";
+                        break;
+                    case 25:
+                        div.innerHTML = "5";
+                        break;
+                    case 30:
+                        div.innerHTML = "6";
+                        break;
+                    case 35:
+                        div.innerHTML = "7";
+                        break;
+                    case 40:
+                        div.innerHTML = "8";
+                        break;
+                    case 45:
+                        div.innerHTML = "9";
+                        break;
+                    case 50:
+                        div.innerHTML = "10";
+                        break;
+                    case 55:
+                        div.innerHTML = "11";
+                        break;
+
+
+                }
+
+
+            } else {
+                div.style.width = "1px";
+                div.style.height = "10px";
+                div.style.background = "#000";
+                div.style.transform = "rotate(" + 6 * i + "deg)";
+                div.style.left = "99px";
+                div.style.top = "0";
+                div.style.transformOrigin = "center 100px"
+            }
+
+            clock.appendChild(div);
+        }
+        var cen = document.createElement("div");
+        cen.style.width = "6px";
+        cen.style.height = "6px";
+        cen.style.background = "black";
+        cen.style.borderRadius = "50%";
+        cen.style.position = "absolute";
+        cen.style.left = "97px";
+        cen.style.top = "97px";
+        clock.appendChild(cen);
+
+    }
+    creatMark();
+
+    function creatPointer() {
+        var hours = document.createElement("div");
+        hours.style.width = "3px";
+        hours.style.height = "30px";
+        hours.style.background = "#000";
+        hours.style.position = "absolute";
+        hours.style.bottom = "100px";
+        hours.style.left = "99px";
+        hours.style.borderRadius = "2px";
+        hours.style.transformOrigin = "center 30px";
+        clock.appendChild(hours);
+
+        var mins = document.createElement("div");
+        mins.style.width = "2px";
+        mins.style.height = "50px";
+        mins.style.background = "#000";
+        mins.style.position = "absolute";
+        mins.style.bottom = "100px";
+        mins.style.left = "99px";
+        mins.style.borderRadius = "2px";
+        mins.style.transformOrigin = "center 50px";
+        clock.appendChild(mins);
+
+        var secs = document.createElement("div");
+        secs.style.width = "1px";
+        secs.style.height = "65px";
+        secs.style.background = "green";
+        secs.style.position = "absolute";
+        secs.style.bottom = "100px";
+        secs.style.left = "100px";
+        secs.style.borderRadius = "2px";
+        secs.style.transformOrigin = "center 65px";
+        clock.appendChild(secs);
+        return [hours, mins, secs];
+
+    }
+    var pointer = creatPointer();
+    console.log(pointer);
+
+
+
+    function rotateP() {
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        pointer[0].style.transform = "rotate(" + (30 * h + m / 60 * 30) + "deg)";
+        pointer[1].style.transform = "rotate(" + 6 * m + "deg)";
+        pointer[2].style.transform = "rotate(" + 6 * s + "deg)";
+    }
+    rotateP();
+    setInterval(rotateP, 1000);
+</script>
+
+</html>

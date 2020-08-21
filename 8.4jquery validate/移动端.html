@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="zepto.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //zepto.js
+        //touch
+        //
+        var div = document.querySelector("div");
+        // div.onclick = function () {
+        //     console.log("click")
+        // }
+        // div.onmousedown = function () {
+        //     console.log("down")
+        // }
+        // div.onmouseup = function () {
+        //     console.log("up")
+        // }
+        //模拟事件  双击 滑动 拖拽 长按 
+        //当一个时间发生的时候,
+        // div.ontouchstart = function (ev) {
+        //     console.log("start");
+        //     console.log(ev.touches[0].screenX);
+        // }
+        // div.ontouchmove = function (ev) {
+        //     console.log("move")
+        //     console.log(ev.touches[0].screenX);
+        // }
+        // div.ontouchend = function (ev) {
+        //     console.log("end")
+        //     console.log(ev.changedTouches[0].screenX);
+        // }
+        div.removeEventListener
+
+        function swipeleft(obj, callback) {
+            obj.addEventListener("touchstart", start);
+            var startx, endx;
+
+            function start(ev) {
+                startx = ev.touches[0].screenX;
+                obj.addEventListener("touchend", end)
+            }
+
+            function end(ev) {
+                endx = ev.changedTouches[0].screenX;
+                if (endx < startx && Math.abs(endx - startx) > 10) {
+                    callback(endx - startx);
+                }
+                obj.removeEventListener("touchend", end)
+            }
+        }
+
+        function swiperight(obj, callback) {
+            obj.addEventListener("touchstart", start);
+            var startx, endx;
+
+            function start(ev) {
+                startx = ev.touches[0].screenX;
+                obj.addEventListener("touchend", end)
+            }
+
+            function end(ev) {
+                endx = ev.changedTouches[0].screenX;
+                if (endx > startx && Math.abs(endx - startx) > 10) {
+                    callback(endx - startx);
+                }
+                obj.removeEventListener("touchend", end)
+            }
+        }
+
+        function swipeup(obj, callback) {
+            obj.addEventListener("touchstart", start);
+            var starty, endy;
+
+            function start(ev) {
+                starty = ev.touches[0].screenY;
+                obj.addEventListener("touchend", end)
+            }
+
+            function end(ev) {
+                endy = ev.changedTouches[0].screenY;
+                if (endy > starty && Math.abs(endy - starty) > 10) {
+                    callback(endy - starty);
+                }
+                obj.removeEventListener("touchend", end)
+            }
+        }
+        swipeleft(div, function (num) {
+            console.log(num)
+        })
+        swiperight(div, function (num) {
+            console.log(num)
+        })
+        swipeup(div, function (num) {
+            console.log(num)
+        })
+        //click dblclick mousedown mouseup mousemove mouseover mouseout 
+        //触摸事件 touchstart touchmove touchend  触摸事件有无数种可能性
+        //那就不可以定义出来每一种触摸的手势
+        //鼠标事件 鼠标未曾离开你的电脑屏幕
+        //触摸事件，手指只有在需要操作的时候，才会触碰屏幕，所以不能像鼠标事件一样完整的记录手机A-B的完成的变化。（不能判断用户的意图intent）
+    </script>
+</body>
+
+</html>

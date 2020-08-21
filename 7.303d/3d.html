@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-3d {
+            width: 800px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+            border: 1px solid slategray;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-3d">
+
+    </div>
+    <script>
+        // for (var i = 0; i < 10; i++) {
+        //     var div = document.createElement("div");
+        //     div.style.cssText = "width:800px;height:" + 400 / 10 + "px;background:url(img) no-repeat 0 " + (-i * 40) +
+        //         "px";
+
+        // }
+        var box3d = document.querySelector(".box-3d");
+        var width = box3d.offsetWidth;
+        var height = box3d.offsetHeight;
+        var num = 10;
+        //10个盒子 10个3d场景 每个盒子 6个面 每个面包含图像 根据位置确定 
+        for (var i = 0; i < num; i++) {
+            var scene = document.createElement("div");
+            scene.style.cssText = "width:100%;height:" + height / num + "px;perspective:800px;border:1px solid black";
+            //创建盒子  transition时间不确定
+            var box = document.createElement("div");
+            box.style.cssText =
+                "transform-style: preserve-3d;width:100%;height:100%;position:relative;transform-origin:center " + (-
+                    width / 2) + "px";
+            for (var j = 0; j < 6; j++) {
+                var panel = document.createElement("div");
+                panel.style.cssText = "position:absolute;left:0;top:0;" //公共的样式
+                if (j == 0) {
+                    panel.style.transformOrigin = "top";
+                    panel.style.transform = "rotateX(-90deg)";
+                    panel.style.width = width + "px";
+                    panel.style.height = width + "px";
+                    panel.style.background = "#000"
+                }
+                if (j == 1) {
+                    panel.style.transformOrigin = "left";
+                    panel.style.transform = "rotateY(90deg)";
+                    panel.style.width = width + "px";
+                    panel.style.height = height + "px";
+                    panel.style.background = "url() no-repeat 0" + (-height / num * i) + "px";
+                }
+                if (j == 2) {
+                    panel.style.transform = "translateZ(" + height + ")";
+                    panel.style.width = width + "px";
+                    panel.style.height = height + "px";
+                    panel.style.background = "url() no-repeat 0" + (-height / num * i) + "px";
+                }
+                if (j == 3) {
+                    panel.style.transformOrigin = "right";
+                    panel.style.transform = "rotateY(-90deg)";
+                    panel.style.width = width + "px";
+                    panel.style.height = height + "px";
+                    panel.style.background = "url() no-repeat 0" + (-height / num * i) + "px";
+                }
+                if (j == 4) {
+                    panel.style.transformOrigin = "bottom";
+                    panel.style.transform = "rotateX(90deg)";
+                    panel.style.width = width + "px";
+                    panel.style.height = width + "px";
+                    panel.style.background = "#000"
+                }
+                if (j == 5) {
+                    panel.style.width = width + "px";
+                    panel.style.height = height + "px";
+                    panel.style.background = "url() no-repeat 0" + (-height / num * i) + "px";
+                }
+                scene.appendChild(box);
+            }
+            box.appendChild(panel);
+            boxarr.push(box);
+            box3d.appendChild(scene);
+        }
+    </script>
+</body>
+
+</html>

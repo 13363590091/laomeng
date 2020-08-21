@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            //  async javascript and xml(标签语言，特别适合储存量小的数据)
+            //读取xml的数据， xml存储数据，html呈现数据
+            var ajax = new XMLHttpRequest(); //1.创建对象
+
+            ajax.onreadystatechange = function () { //2.监听事件
+                if (ajax.readyState == 4) {
+                    if (ajax.status == 200) { //3.数据状态的变化
+                        //安全 
+                        console.log("成功！");
+                        console.log(ajax.response); //6.获取查找的数据
+                    }
+                }
+            }
+            //1. 我们告知Ajax相应的地址，和传递方式
+            //2. 信息已经发送
+            //3. 请求的服务器存在
+            //4. 代表数据已经拿到,证明数据安全的完整的返回嘛?
+            //ajax.open("get", "ajax1.html", true, "XXX", "XXX");
+            ajax.open("get", "ajax1.html"); //设置方式
+            //ajax.open("get", "ajax1.html?id=1");
+            ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+            // 什么方式  去哪取  同步还是异步  用户名  密码
+            ajax.send(); //5.发送出去  post设置头信息 ajax.send(id=1)
+        }
+        //思考问题 
+        // ajax({url:"XXX.php",
+        // type:"get",
+        // data:"id=1&name=zhangsan",
+        // dataType:"json"//返回的格式
+        // })
+    </script>
+</body>
+
+</html>

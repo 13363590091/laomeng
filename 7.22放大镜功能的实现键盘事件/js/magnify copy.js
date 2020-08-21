@@ -39,13 +39,14 @@ window.addEventListener("DOMContentLoaded", function () { //html 结构加载完
     //大图显示隐藏
     //改变事件流
     //1.写一个函数
-    //2.改变html结构的方式 . 事件流->有层级关系,改变成平级关系
-
+    //2.改变html结构的方式 . 事件流->有层级关系,改变成平级关系,加一个一样大小的div 上添加事件
     /* 第三种 // formElement toElement这两个属性只有mouseover 和mouseout里面有
     //事件对象 e  e.type formElement toElement
+    //自己写一个函数 代替mouseover mouseout
+    // 如何判断鼠标是不是从内部来的  内部来的 false 不是内部来的 true
     hover(middleBox, function () {
         bigBox.style.display = "block";
-        mask.style.display = "block"
+        mask.style.display = "block" n
         console.log("over");
     }, function () {
         bigBox.style.display = "none";

@@ -36,6 +36,23 @@
         //               addEventListener(1,true);
         //               结论是：只要有动作，浏览器就能捕获->确定谁来触发
         //                      完全没有用处,只存在面试 效率比较慢
+        //键盘事件
+        //很少用在不能输入文本的元素上  通常->表单上
+        document.onkeydown = function (ev) {
+            console.log(String.fromCharCode(ev.which)); //按压下哪个键 //ASCII码转
+            // console.log(String.fromCharCode(ev.keyCode));//获取按下哪个键
+            // console.log(ev.ctrlKey);//按下是否是ctrl键
+            // console.log(ev.shiftKey); //按下是否是shift键
+            // console.log(ev.altKey);//alt
+            //回车 16 空格 32 方向键 （左上右下）37 38 39 40
+
+        }
+        // document.onkeyup = function () {
+        //     console.log("up");
+        // }
+        // document.onkeypress = function () { //按压住
+        //     console.log("press"); //press 键盘按稳了 才触发
+        //
     </script>
     <div class="one" onclick="alert('.one')">
         <div class="two" onclick="alert('two')">

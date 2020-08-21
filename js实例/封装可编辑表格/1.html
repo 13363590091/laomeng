@@ -1,0 +1,170 @@
+//-------全局变量-------
+2 var data={
+3 "10":["<img src='images/A.gif' />"],"11":["<img src='images/B.gif' />"],"12":["<img
+    src='images/C.gif' />"],"13":["<img src='images/D.gif' />"],
+4 "14":["<img src='images/E.gif' />"],"15":["<img src='images/F.gif' />"],"16":["<img
+    src='images/G.gif' />"],"17":["<img src='images/H.gif' />"],
+5 "18":["<img src='images/I.gif' />"],"19":["<img src='images/J.gif' />"],"20":["<img
+    src='images/K.gif' />"],"21":["<img src='images/L.gif' />"],
+6 "22":["<img src='images/M.gif' />"],"23":["<img src='images/N.gif' />"],"24":["<img
+    src='images/O.gif' />"],"25":["<img src='images/P.gif' />"],
+7 "26":["<img src='images/Q.gif' />"],"27":["<img src='images/R.gif' />"],"28":["<img
+    src='images/S.gif' />"],"29":["<img src='images/T.gif' />"],
+8 "30":["<img src='images/U.gif' />"],"31":["<img src='images/V.gif' />"],"32":["<img
+    src='images/W.gif' />"],"33":["<img src='images/X.gif' />"],
+9 "34":["<img src='images/Y.gif' />"],"35":["<img src='images/Z.gif' />"]
+10 };
+11 var datas=new Array();//随机出现的 class样式以数组中偶数存储，图片以数组中奇数存储
+12 var now=new Date();
+13 var Image; //随机出现图片
+14 var Divs;//随机出现层
+15 var count=0;//积分系统
+16 var key;//键盘的值
+17 var amounts=1;//出现字母图片的个数
+18 var gametime=30;//控制游戏的时间
+19 var gametimes;//时间为0
+20 var gametimess=30;//显示时钟变量
+21 var time1;//setInterval变量
+22 var time2=5000;//设定setInterval的时间
+23 var time3;
+24 var tab;//用来记录，传递tabindex焦点位置的值
+25
+26 //--------这样写为了兼容FF浏览器-------
+27 var plug = {
+28 addEvent:function(o,e,f){
+29 if(o.addEventListener){
+30 o.addEventListener(e,f,false);
+31 }
+32 else if(o.attachEvent){
+33 o.attachEvent("on"+e,f);
+34 }
+35 }
+36 }
+37 plug.addEvent(window,"load",function(){Focus()});//兼容FF浏览器
+38
+39
+40 //------1.控制游戏时间函数--------
+41 function Gametime(){
+42 for(gametimes=gametime;gametimes>=0;gametimes--) {
+43 window.setTimeout('Show(' + gametimes + ')',(gametime-gametimes+2) * 1000);
+44 }
+45 }
+46 function Show(gametimes){
+47 if(gametimes==0){
+48 clearInterval(time1);//停止游戏
+49 alert("游戏结束!你的得分为:"+count);
+50 $("#main").empty();//清除main中的div
+51 $(".gameapply").empty();
+52 $("#select1").empty();
+53 $("#select2").empty();
+54 count=0;//得分清空为0
+55 Score();//让分数框显示为0
+56 Focus();//重新生成菜单选项
+57 }
+58 }
+59
+60
+61 //---------2.动画效果---------
+62 function fun(){
+63 datas.length=0;
+64 for(var i=0;i<amounts;i++){ 65 Image=parseInt(Math.random() * 26)+10;//随机出现字母图片 66
+    datas.push(Image);//图片以数组中偶数存储,从零开始 67 Divs=parseInt(Math.random() * 8)+1;//随机出现层的class样式即层的不同位置 68
+    datas.push(Divs);//样式以数组中奇数存储 69 var time=parseInt(Math.random() * 2000)+3000;//完成动画的时间 70 if(time<5000){ 71 var
+    $divs=$("<div class='divPop"+Divs+"'>"+data[Image]+"</div>");
+    72 $("#main").append($divs);
+    73 //-----JQ动画函数----
+    74 $(".divPop"+Divs).animate(
+    75 {"top":$(window).height() - $(".divPop"+Divs).height() -
+    $(".divPop"+Divs).position().top},time,function(){$("#main").empty()})
+    76 }
+    77 }
+    78 }
+    79
+    80
+    81 //--------3.设定字母图片出现的时间------
+    82 function sets(){
+    83 time1 = setInterval(fun,time2);
+    84 }
+    85
+    86
+    87 //---------4.绑定键盘---------
+    88 //---------兼容FF浏览器---------
+    89 document.onkeydown = function keydown(e){
+    90 e = e||window.event;
+    91 var key = e.charCode||e.keyCode
+    92 select(key)
+    93 }
+    94
+    95
+    96 //---------5.判断函数---------
+    97 function select(key){
+    98 if(key==13){
+    99 switch(tab){
+    100 case 0:Gametime();Gametimeselect();time3=setInterval(countdown,1000);sets();$("#select").hide(2000);break;//开始游戏
+    101 case 1:Gametime();Gametimeselect();time3=setInterval(countdown,1000);sets();$("#select").hide(2000);break;//开始游戏
+    102 case 2:alert("可以在左侧设置游戏选项");break;
+    103 case 3:window.opener=null;window.open('','_self');window.close();break;//退出游戏
+    104 case 4:window.opener=null;window.open('','_self');window.close();break;//退出游戏
+    105 }
+    106 }
+    107 for(var j=0;j<datas.length;j=j+2){//为了让data1里面样式和图片的值不重复（即奇数跟偶数的不可能重复，m的值或者k的值要相差一定的值） 108 if(key==datas[j]+55){
+        109 $(".divPop"+datas[j+1]).hide();//key值相等,隐藏该层 110 delete
+        datas[j]; //为了避免有重复的字母，所以数组里面每遍历到一个(key==datas[j]+55)都要删除这个值 111 count+=10; 112 Score(); 113 break; 114 } 115 }
+        116 } 117 //---------6.游戏菜单------- 118 function Focus(){ 119 //---------初始化游戏界面-------- 120 var $selects=$("<div
+        id='select'>
+        <table id=\"tables\">
+            <tr>
+                <td><input class=\"inputs\" type=\"text\"value=\"游戏开始\" /></td>
+            </tr>
+            <tr>
+                <td><input class=\"inputs\" type=\"text\" value=\"游戏选项\" /></td>
+            </tr>
+            <tr>
+                <td><input class=\"inputs\" type=\"text\" value=\"退出游戏\" /></td>
+            </tr>
+        </table>
+        </div>");
+        121 $(".gameapply").append($selects);
+        122 for(var i=30;i<=300;i=i+30){ 123 $("#select1").append('<option>' + i+ '</option>')
+            124 }
+            125 for(var j=1;j<=9;j++){ 126 $("#select2").append('<option>' + j+ '</option>')
+                127 }
+                128 //---------开始时取得第一个input的焦点--------
+                129 $(".inputs:first").trigger("focus").addClass("input1");
+                130 tab=1;//因为第一个焦点是没法输入Enter，所以要调用键盘输入事件
+                131 var tabIndex=1;
+                132
+                133 //----------获取tr行数，input个数--------
+                134 $("#tables").find("tr").each(function(r) {
+                135 $(this).find("input").attr("tabindex", r+1);//tabindex为焦点位置的值，赋初值为1，遍历为1-2-3-4
+                136 });
+                137 //---------响应input的键盘上下操作
+                138 $("#tables .inputs").bind("keydown", function(e){
+                139 tabIndex = parseInt($(this).attr("tabindex"));//取得当前tabindex焦点的值
+                140 switch(e.which){
+                141 case 38://向上
+                142 tabIndex-=1;
+                143 tab=tabIndex;
+                144 break;
+                145 case 40://向下
+                146 tabIndex+=1;
+                147 tab=tabIndex;
+                148 break;
+                149 default:
+                150 return;
+                151 }
+                152 //--------判断tabIndex焦点的值
+                153 if (tabIndex > 0 && tabIndex < 4) { 154 $(".inputs[tabindex=" + tabIndex + "
+                    ]").focus().addClass("input1");//当前input获取焦点 155 for(var i=0;i<=4;i++) 156 { 157 if(i==tabIndex){
+                    158 break; 159 } 160 else{ 161 $(this).removeClass("input1"); 162 } 163 } 164 keydown(); 165 return
+                    false; 166 } 167 return true; 168 }); 169 } 170 171 //--------7.游戏时间选项--------- 172 function
+                    Gametimeselect(){ 173 var option=document.getElementById("select1"); 174 for(var
+                    i=0;i<option.length;++i){ 175 if(option[i].selected) { 176 gametime=option.options[i].text; 177
+                    gametimess=gametime; 178 } 179 } 180 } 181 182 //-----8.显示游戏时间------- 183 function countdown(){ 184
+                    var timeshows=document.getElementById("timeshow"); 185 if(timeshows){//如果网页速度很慢的话，可能定时器运行的时候控件还没有加载
+                    186 if(gametimess<0){ 187 clearInterval(time3);//停止计时器 188 } 189 else{ 190
+                    timeshows.value=gametimess; 191 gametimess--; 192 } 193 } 194 } 195 //--------9.游戏难度选项---------
+                    function Gameselectamount(){ var option=document.getElementById("select2"); for(var
+                    i=0;i<option.length;++i){ if(option[i].selected) { amounts=option.options[i].text; } }
+                    } //---------10.游戏得分----------- function Score(){ var sum=document.getElementById("sum");
+                    sum.value=count; if(count==0){ //初始化文本框分数为0 sum.value=count; } }

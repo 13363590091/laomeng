@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,
+        li,
+        body {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu {
+            width: 600px;
+            height: 600px;
+        }
+
+        .menu>li {
+            float: left;
+            width: 20%;
+
+        }
+
+        .menu>li>a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            line-height: 40px;
+            text-align: center;
+            background-color: royalblue;
+
+        }
+
+        .son {
+            width: 100%;
+            border: 1px solid red;
+            opacity: 1;
+            transition: all 3s ease;
+            overflow: hidden;
+        }
+
+        .menu>li:hover .son {
+            /* opacity: 1; */
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li>
+            <a href="">菜单一</a>
+            <ul class="son">
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="">菜单一</a>
+            <ul class="son">
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="">菜单一</a>
+            <ul class="son">
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="">菜单一</a>
+            <ul class="son">
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="">菜单一</a>
+            <ul class="son">
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+                <li>
+                    <a>菜单1-1</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script src="../7.31jQuery扩展-队列/jquerymini.js"></script>
+    <script>
+        $(function () {
+            $(".son").each(function (index, obj) {
+                $(obj).data("height", $(obj).height())
+            })
+
+            $(".menu>li").hover(function () {
+                var son = $(this).find(".son")
+                var height = son.height();
+                son.height(0);
+                son.animate({
+                    height: son.height
+                })
+            }, function () {
+                son.finish();
+                son.animate({
+                    height: 0
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.1.1.js"></script>
+    <script src="jquery.validate.js"></script>
+</head>
+<script>
+    $(function () {
+        jQuery.validator.addMethod("chineses", function (value, element) {
+            var chi = /[\u4e00-\u9fa5]{2,}/;
+            return this.optional(element) || (chi.test(value));
+        }, "请输入至少两个中文数字");
+        $("form").validate({
+            rules: {
+                firstname: "required",
+                lastname: {
+                    required: true,
+                    minlength: 5,
+                    maxlength: 10
+
+                },
+                username: {
+                    chineses: true,
+                    required: true
+                }
+            },
+            messages: {
+                firstname: "必须填写",
+                lastname: {
+
+                    required: "必须填写",
+                    minlength: "不少于五个字符",
+                    maxlength: "不能多于10个字符"
+
+                },
+                username: {
+                    required: "必须填写",
+                }
+            }
+        })
+    })
+</script>
+<form class="cmxform" id="signupForm" method="get" action="">
+    <for>
+        <legend>Validating a complete form</legend>
+        <p>
+            <label for="firstname">Firstname</label>
+            <input id="firstname" name="firstname" type="text">
+        </p>
+        <p>
+            <label for="lastname">Lastname</label>
+            <input id="lastname" name="lastname" type="text">
+        </p>
+        <p>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password">
+        </p>
+        <p>
+            <label for="confirm_password">Confirm password</label>
+            <input id="confirm_password" name="confirm_password" type="password">
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email">
+        </p>
+        <p>
+            <input class="submit" type="submit" value="Submit">
+        </p>
+</form>
+
+<body>
+
+</body>
+
+</html>

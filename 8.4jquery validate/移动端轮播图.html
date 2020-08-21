@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../7.31jQuery扩展-队列/jquerymini.js"></script>
+    <style>
+        .container {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 150px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        .pic-con {
+            width: 400%;
+            height: 150px;
+            position: relative;
+
+        }
+
+        .pic1 {
+            width: 25%;
+            height: 100%;
+            position: absolute;
+        }
+
+
+
+        .pic-con div:nth-child(1) {
+            background-color: teal;
+            left: 25%;
+        }
+
+        .pic-con div:nth-child(2) {
+            background-color: thistle;
+            left: 50%;
+        }
+
+        .pic-con div:nth-child(3) {
+            background-color: tomato;
+            left: 75%;
+        }
+
+        .pic-con div:nth-child(4) {
+            background-color: black;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="pic-con">
+            <div class="pic1"></div>
+            <div class="pic1"></div>
+            <div class="pic1"></div>
+            <div class="pic1"></div>
+        </div>
+    </div>
+    <script>
+        var num = 0
+
+        function run() {
+            num++;
+            if (num > 3) {
+                num = 0;
+                $(".pic-con").animate({
+                    right: none
+                }, 300);
+            } else {
+                $(".pic-con").animate({
+                    right: (num * 100) + "%"
+                }, 300);
+            }
+
+        }
+        setInterval(run, 2000)
+    </script>
+</body>
+
+</html>

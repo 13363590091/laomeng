@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="zepto.js"></script>
+    <script src="js/zepto-animate.js"></script>
+    <script src="js/zepto-touch.js"></script>
+    <script src="hammer.js"></script>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="one">
+
+    </div>
+    <script>
+        //tap 直接响应
+        //singleTap 会等待监测会不会再点击一次
+        // $("div").css({
+        //     width: 100,
+        //     height: 100,
+        //     border: "1px solid red"
+        // }).singleTap(function () {
+        //     $(this).animate({
+        //         height: 500
+        //     }, 1000)
+        // }).doubleTap(function () {
+        //     $(this).animate({
+        //         width: 200
+        //     }, 1000)
+        // }).longTap(function () {
+        //     console.log(1)
+        // })
+        var div = document.querySelector(".one");
+        var hammertime = new Hammer(div);
+        var startx;
+        hammertime.on('panstart', function () {
+            startx = div.offsetLeft;
+            console.log(startx)
+        })
+        hammertime.on('panleft', function (ev) {
+            console.log(1)
+            div.style.left = startx + ev.deltaX + "px"
+        })
+        hammertime.on('panright', function (ev) {
+            div.style.left = startx + ev.deltaX + "px"
+        })
+    </script>
+</body>
+
+</html>

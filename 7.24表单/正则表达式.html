@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 300px;
+            height: 50px;
+            font-size: 13px;
+            line-height: 40px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 200px;
+            font-size: 40px;
+        }
+
+        input:focus {
+            border: 1px solid gold;
+        }
+
+        textarea:focus {
+            border: 1px solid gold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        //1.new RegExp
+        //2.test 测试字符串是不是符合你的规则
+        //3.exec 类数组 0匹配到结果 index 匹配到开始的位置 input 要匹配的字符串
+        // var reg = new RegExp("abc");//和这样创建一样 var reg = /abc/i; i模式修正符号
+        // var str = "123abc123";
+        // console.log(reg.test(str));
+        // console.log(reg.exec(str));
+        //语法
+        /*
+        原子 ://一个//字符串 /a/ /b/ /1/
+        \w              任意一个数字 子母 下划线 [a-z]匹配a-z一个原子    [0-9a-zA-Z_]相当于\w
+        \d              匹配一个数字 [^5-6] 加个^ 除了5-6 都要匹配
+        \s              空白
+        \n              回车和换行 window \r\n
+        \t
+        {}[] ()
+        \.              匹配所有的除了换行符
+        a{3}            三个a连在一起 a{1,4} 匹配规则是懒惰的,只要匹配成功一个,后面字符串不进行匹配,遇到量词是贪婪的.
+        \d{1,}          一个或多个
+        \d*             0或多个 \d 1个或多个 
+            *?          重复任意次，但尽可能少重复
+            +?          重复1次或更多次，但尽可能少重复
+            ??          重复0次或1次，但尽可能少重复
+            {n,m}?      重复n到m次，但尽可能少重复
+            {n,}?       重复n次以上，但尽可能少重复
+        /ab|bc|ef/      匹配任何一个都行
+        \^[a-z]         开头 /^[a-z]\d{3}$/ 字母开头+三个数字  $为结尾 ^为开头
+        /\bstudent\b/   单词的边界
+        \               转义字符  能把本来就有特殊意义的字符(在正则表达式中)转换为正常的字符,也能把本来正常的数字转换为特殊意义的exp:\[  、\d
+        手机号           /^\d{11}$/
+        身份证           /[1-6][1-7][0-9]{4}[12][09][0-9]{9}[0-9xX]/d{17}(x|X|\d)/
+        /(98)(aa)\1\2/  括号不仅优先级高而且可以保存括号的的信息  这个表达式匹配98aa  \1代表第一个括号保存的内容
+        /(?:98)/        ?:取消在括号里面存储 只有优先级
+        /a(?=n)/        ?= a后面有n才能匹配
+        /a(?=.*[\d])/   a后面有任意多少个字符 但必须有数字  .* 任意多少个字符 后面有数字
+        /^[a-zA-Z](?=.*[A-Z])(?=.*[\#\&\(\)\{\}\$\*\.\_])[\w\d\#\&\(\)\{\}\$\*\.\_]{5,19}$/ 
+        确定密码的规则，   6-20 之间   开头必须是字母,中间至少有1位大写 ，至少有一位特殊的符号 !@#$&*(){}[]，剩下的内容可以字母，下划线,数字，
+        可以是特殊的符号
+        
+        2.模式修正符
+            exec  i 不区分大小写 m字符串 g全局 
+        3.str.replace 支持正则
+        4.str.search  不支持全局的 
+        */
+    </script>
+    正则：<input type="text" name="reg" />
+    <!--vertical-align: 100px;行内两元素的对齐方式-->
+    <span style="vertical-align: 100px;">字符串</span><textarea name="str" rows="10" cols="20"></textarea>
+    <br> <br>
+    <input type="button" value="匹配" name="check">
+    <input type="button" value="清空" name="clear">
+    <hr>
+    <div class="result">
+
+    </div>
+    <script>
+        var regbox = document.querySelector("input[name=reg]");
+        console.log(regbox);
+        var strbox = document.querySelector("textarea");
+        var check = document.querySelector("input[name=check]");
+        var clear = document.querySelector("input[name=clear]");
+        var div = document.querySelector(".result");
+        console.log(eval(regbox.value));
+        //把长得像代码的字符串 变成真正的代码 
+        //var obj = '{"name" = "zhangsan"}';
+        //console.log(eval("obj"));//将符合js语法规范的字符串解析成规范的语法去执行;
+        // console.log(eval("'" + {
+        //     "name" = "zhangsan"
+        // } + "'"));
+        // JSON.parse(obj).name
+
+        check.onclick = function () {
+            var reg = eval(regbox.value);
+            var str = strbox.value;
+            var result = reg.exec(str);
+            console.log(result);
+            if (reg.test(str)) {
+
+                div.innerHTML = "匹配结果: 匹配成功!<br>匹配的字符串是" + result[0] + ",匹配的位置是在:" + result.index;
+            } else {
+
+                div.innerHTML = "匹配结果: 匹配失败!"
+            }
+        }
+        clear.onclick = function () {
+            regbox.value = "";
+            strbox.value = "";
+        }
+        
+    </script>
+</body>
+
+</html>

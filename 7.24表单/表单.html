@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<form action="" name="myform">
+    账号 <input type="text" name="text"><br>
+    密码<input type="password" name="password">
+    单选:男:<input type="radio" name="sex" value="nan">
+    女<input type="radio" name="sex" value="nan">
+    1<input type="checkbox" name="more[]">
+    2<input type="checkbox" name="more[]" id="">
+    3<input type="checkbox" name="more[]" id="">
+    <select name="sel" id="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <input type="submit" name="" id="" value="提交">
+</form>
+<script>
+    //对于焦点的事件
+    //失去焦点  获得焦点
+    //获得表单的三种方式
+    //1.常规查找
+    //属性选择器  name 是表单元素的标配属性
+    // var input = document .querySelector("input[type=text]");
+    // var input =document.getElementById("")
+    // var input =document.getElementsByClassName("");
+    // var input = document.getElementsByTagName("input")[0];
+    //2.getElementsByName
+    // var input = document.getElementsByName("")[0];//也可以给div添加name
+    //3.document.name.name
+    var input = document.myform.text;
+    // text.onblur = function () {
+    //     console.log("blur");
+    // }
+    // text.onfocus = function () {
+
+    // }
+    // text.onchange = function () {
+
+    // } //输入文字并且鼠标失去焦点 //单选 多选
+    // text.oninput = function () {
+
+    // } //type="text" 
+    var sel = document.myform.sel;
+
+    sel.onchange = function () {
+        console.log(this[this.selectIndex].value);
+    }
+    var myform = document.myform;
+    myform.onsubmit = function () {
+        if (myform.text.value == "") {
+            alert("账号不能是空!");
+            ev.preventDefault();
+            //或者
+            //return false;
+        }
+        if (myform.password.value == "") {
+            alert("密码不能为空!");
+            return false;
+        }
+    }
+    var str = "bcs2ef4s1";
+    str.replace(/d/g, function (val) {
+        return val * 1 + 10;
+    });
+    console.log(str.search(/\d/g));
+    console.log(str.match(/\d/g)); //全局查找
+    console.log(str.split(/\d/g)); //拆分数组
+</script>
+
+<body>
+</body>
+
+</html>

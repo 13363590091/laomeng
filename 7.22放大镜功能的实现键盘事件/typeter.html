@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>打字游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .gamePage {
+            width: 100wh;
+            height: 100vh;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .card {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0px;
+            right: 100px;
+            display: flex;
+        }
+
+        .card>div {
+            width: 80px;
+            margin: 10px;
+            height: 40px;
+            background: #eee;
+        }
+
+        .card div .title {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: 200;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .card div .records {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+            color: #636FA4;
+        }
+
+        .card div .lifes {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+            color: #636FA4;
+        }
+
+        .deadline {
+            width: 100%;
+            height: 2px;
+            /* background: #ddd; */
+            position: absolute;
+            bottom: 220px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gamePage">
+        <div class="card">
+            <div>
+                <div class="records">0</div>
+
+            </div>
+
+        </div>
+        <div class="deadline"></div>
+        <span
+            style="position: absolute; left: 434px; top: 14px; font-size: 48px; font-weight: bold; display: block; width: 50px; height: 50px; text-align: center; line-height: 50px; color: rgb(255, 255, 255); border-radius: 50%; transition: all 0.5s ease 0s;">Y</span><span
+            style="position: absolute; left: 407px; top: 20px; font-size: 48px; font-weight: bold; display: block; width: 50px; height: 50px; text-align: center; line-height: 50px; color: rgb(255, 255, 255); border-radius: 50%; transition: all 0.5s ease 0s;">V</span><span
+            style="position: absolute; left: 467px; top: 9px; font-size: 48px; font-weight: bold; display: block; width: 50px; height: 50px; text-align: center; line-height: 50px; color: rgb(255, 255, 255); border-radius: 50%; transition: all 0.5s ease 0s;">Q</span><span
+            style="position: absolute; left: 905px; top: 19px; font-size: 48px; font-weight: bold; display: block; width: 50px; height: 50px; text-align: center; line-height: 50px; color: rgb(255, 255, 255); border-radius: 50%; transition: all 0.5s ease 0s;">E</span>
+    </div>
+
+    <script>
+        var gamePage = document.querySelector(".gamePage");
+        var deadline = document.querySelector(".deadline");
+        console.log(deadline.offsetTop)
+        var words = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+            "U", "V", "W", "X", "Y", "Z"
+        ];
+
+        function createWord(num) {
+            for (let i = 0; i < num; i++) {
+                var word = document.createElement("span");
+                word.innerHTML = words[Math.ceil(Math.random() * 25)];
+                word.style.cssText = `
+                position: absolute;
+                left: ${Math.ceil(Math.random()*1000)}px;
+                top:  ${Math.ceil(Math.random()*20)}px;
+                font-size:48px;
+                font-weight: bold;
+                display:block;
+                width:50px;
+                height:50px;
+                text-align:center;
+                line-height:50px;
+                color:gold;
+                border-radius:50%;
+                transition: all .5s;
+                `;
+                gamePage.appendChild(word);
+            }
+        }
+
+        createWord(4)
+        var speed = 20;
+        var t = setInterval(function () {
+            var spans = document.querySelectorAll(".gamePage span");
+            for (let i = 0; i < spans.length; i++) {
+                spans[i].style.top = spans[i].offsetTop + speed + "px";
+                if (spans[i].offsetTop > deadline.offsetTop) {
+                    var lifes = document.querySelector(".lifes");
+                    var score = document.querySelector(".records");
+                    spans[i].style.opacity = 0;
+                    gamePage.removeChild(spans[i]);
+                    createWord(1);
+                }
+            }
+        }, 10);
+
+        document.onkeydown = function (ev) {
+            var code = String.fromCharCode(ev.keyCode);;
+            var spans = document.querySelectorAll(".gamePage span");
+            for (let i = 0; i < spans.length; i++) {
+                if (spans[i].innerHTML == code) {
+                    gamePage.removeChild(spans[i]);
+                    var records = document.querySelector(".records");
+                    records.innerHTML = parseInt(records.innerHTML) + 1;
+                    createWord(1);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

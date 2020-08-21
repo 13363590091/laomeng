@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="js/zepto.js"></script>
+    <script src="js/hammer.js"></script>
+    <script src="js/hammer-jquery.js"></script>
+    <style></style>
+</head>
+
+<body>
+
+    <body>
+        <div class="header">
+            <div class="close">
+                <div class="close-1"></div>
+                <div class="close-2"></div>
+            </div>
+            <img src="img/vicor.png" alt="" class="header-img">
+        </div>
+        <div class="nav">
+            <div class="nav-con">
+
+            </div>
+        </div>
+    </body>
+    <script>
+        //1.看的好，看得清 更多的像素展示图片，逻辑像素和物理像素是一个比例关系
+
+        //2.比例微调关系
+        //3.rem针对于根元素html的font-size的倍数 
+        //4.
+        var flag = 1;
+
+        $(".close").hammer().bind("tap", function () {
+            if (flag == 1) {
+                $(".close-1").css({
+                    transform: "translateX(-50%) translateY(-50%)"
+                });
+                $(".close-2").css({
+                    transform: "translateX(-50%) translateY(-50%)"
+                });
+                $(".close").css({
+                    overflow: "hidden"
+                })
+                flag = 0;
+            } else {
+                $(".close-1").css({
+                    transform: "translateX(-50%) translateY(-50%) rotate(45deg)"
+                });
+                $(".close-2").css({
+                    transform: "translateX(-50%) translateY(-50%) rotate(-45deg)"
+                });
+                flag = 1;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

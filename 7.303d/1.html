@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //   库 各种工具的集合=> 工具->函数的集合 独立的
+        // 参数传入选择器外,传入其他的类型
+        //1.获取相应元素
+        function myJquery(selector) {
+            if (typeof selector == "string")
+                var eles = document.querySelectorAll(selector);
+            for (var i = 0; i < eles.length; i++) {
+                this[i] = eles[i];
+            }
+            this.length = eles.length;
+        }
+        myJquery.prototype = {
+            css: function (attr, val) {
+                //for (var i = 0; i < this.length; i++) {
+                // if (typeof attr == "string") {
+                //     if (attr == "width" || attr == "height" || attr == "margin" || attr == "padding") {
+                //         this[i].style[attr] = parseInt(val) + "px";
+                //     } else {
+                //         this[i].style[attr] = val;
+                //     }
+                // }
+                // if (typeof attr=="object") {//json 格式
+                //     for(var j in attr){
+                //         if (j == "width" || j == "height" || j == "margin" || j == "padding") {
+                //         this[i].style[j] = parseInt(val) + "px";
+                //     } else {
+                //         this[i].style[j] = val;
+                //     }
+                //     }
+                // }
+                this.each(function (index, obj) {
+                    if (typeof attr == "string") {
+                        if (attr == "width" || attr == "height" || attr == "margin" || attr ==
+                            "padding") {
+                            obj.style[attr] = parseInt(val) + "px";
+                        } else {
+                            obj.style[attr] = val;
+
+                        }
+                    }
+                    if (typeof attr == "object") {
+                        for (var j in attr) {
+                            if (j == "width" || j == "height" || j == "margin" || j ==
+                                "padding") {
+                                obj.style[j] = parseInt(attr[j]) + "px";
+                            } else {
+                                obj.style[j] = attr[j];
+                            }
+                        }
+                    }
+                });
+
+                return this;
+            },
+
+            html: function (val) {
+                this.each(function (index, obj) {
+                    obj.innerHTML = val;
+                })
+                return this;
+            },
+            each: function (callback) {
+                for (var i = 0; i < this.length; i++) {
+                    callback(i, this[i])
+                }
+            }
+        }
+
+        var obj = new myJquery("div");
+        obj.css({
+            width: 200,
+            height: 200,
+            border: "1px solid black"
+        }).html("sdasf");
+    </script>
+</body>
+
+</html>

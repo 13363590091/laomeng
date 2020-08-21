@@ -1,0 +1,72 @@
+.wrap1 {
+    width: 1080px;
+    margin: 0 auto;
+    height: 699.5px;
+}
+
+.line {
+    width: 830px;
+    border-top: 1px solid #e8e8e8;
+    float: left;
+    margin-top: 20px;
+}
+
+.products-page {
+    text-align: center;
+    clear: both;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #E8E8E8;
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+
+.link-page {
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #666666;
+    margin: 0px;
+    padding-top: 5px;
+    padding-right: 7px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+}
+
+.nlist-li {
+    border-bottom: #e3e4e8 1px dashed;
+    padding: 10px 0;
+    padding-left: 0px;
+    line-height: 24px;
+    overflow: hidden;
+    list-style: inside disc;
+    color: #CCC;
+    padding-left: 10px;
+}
+
+.right-a {
+    font-size: 14px;
+    color: #333438;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s ease-in-out;
+}
+
+.right-a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.date {
+    float: right;
+    color: #999;
+}

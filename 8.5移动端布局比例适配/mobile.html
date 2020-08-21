@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=10,minimum-scale=0.5">
+    <!--initial-scale 初始比例-->
+    <title>Document</title>
+    <script>
+        var ratio = 1 / window.devicePixelRatio;
+        var meta = document.getElementsByName("viewport");
+        console.log(meta)
+        meta.content = "width=device-width, initial-scale=" + 2;
+    </script>
+    <style>
+        /* 设计稿 750px  100vw=750px */
+        /*  13.3333vw=1rem  13.3333vw = 100px*/
+        html {
+            font-size: 13.333333333333333vw;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .one {
+            width: rem;
+            height: 50vh;
+            border: 1px solid black;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">
+
+    </div>
+    <script>
+        //物理像素
+        //就是屏幕当中真实存在的像素点，工厂生产屏幕的时候，屏幕当中真实像素点
+        //看的好 ->物理像素点越多,描述一个人图片的信息就越多,看起来越真实
+        //逻辑像素 rgb(0-25,0-255,0-255)
+        //就是在屏幕当中我们看到的像素点 
+        //pc端 :物理像素和逻辑像素1:1 因为pc的屏幕够大,又能看的好,看得清
+
+        //移动端
+        //没有固定的比例
+        //要解决的问题
+        //1.看的好,看得清
+        //2.适配问题每个手机的分辨率不一样 屏幕的尺寸不一样,但是我们的设计稿是一样的
+        //1.
+        //实际像素/(比例*initial-scale)
+        //width=device-width
+        //逻辑像素 =物理像素/(比例*initial-scale)
+        //alert(window.devicePixelRatio); //程序自己算 比例
+        //2.等比例适配
+
+        // em css的单位  倍数 相对于父元素font-size字体大小,直接用比较繁琐,不易于计算.
+        // rem 如果em可以能够固定参考的元素  rem root 根元素
+        //利用rem这一特性,还能实现移动端的适配
+        //js适配
+        // 
+        // function rem(designSize) {
+        //     var clientW = document.documentElement.clientWidth;
+        //     var bili = clientW / designSize;
+
+        //     document.querySelector("html").style.fontSize = bili * 100 + "px";
+        // }
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     rem(750);
+        // })
+        // document.addEventListener("resize", function () {
+        //     rem(750);
+        // })
+        //css  Vm 把浏览器的高度\宽度分成100份   宽度vw 高度vh
+        //
+    </script>
+</body>

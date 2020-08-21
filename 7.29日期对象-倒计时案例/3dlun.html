@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wheel {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+            /* border: 1px solid slateblue; */
+        }
+
+        .scene {
+            width: 300px;
+            height: 300px;
+            perspective: 800px;
+            position: absolute;
+            transform-style: preserve-3d;
+            left: 0;
+            top: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* border: 1px solid black; */
+            transition: transform 2s ease;
+            transform-style: preserve-3d;
+            transform-origin: center center -150px;
+        }
+
+        .box div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 100px;
+            color: blue;
+            line-height: 300px;
+            text-align: center;
+
+        }
+
+        .box div:nth-child(1) {
+            background: gold;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+
+        .box div:nth-child(2) {
+            background: rgb(57, 245, 72);
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+
+        .box div:nth-child(3) {
+            background: rgb(33, 216, 248);
+
+        }
+
+        .box div:nth-child(4) {
+            background: rgb(214, 57, 245);
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+
+        .box div:nth-child(5) {
+            background: rgba(194, 122, 14, 0.37);
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+
+        .box div:nth-child(6) {
+            background: rgb(248, 33, 98);
+            transform: translateZ(-300px);
+        }
+
+        /* .box:hover {
+
+            transform: rotateX(90deg);
+        } */
+
+        .left {
+            position: absolute;
+            left: -40px;
+            height: 100%;
+            line-height: 300px;
+            top: 0;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .right {
+            position: absolute;
+            right: -40px;
+            height: 100%;
+            line-height: 300px;
+            top: 0;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .btns {
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            height: 30px;
+
+        }
+
+        .btns li {
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 5px rgb(168, 168, 168);
+            border-radius: 50%;
+            margin-top: 5px;
+            margin-left: 20px;
+            float: left;
+            background-color: rgb(133, 133, 133);
+            text-align: center;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .btns li:nth-child(1) {
+            background-color: black;
+            border: 2px solid rgb(255, 255, 255);
+
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wheel">
+        <div class="scene">
+            <div class="box">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+        </div>
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+        <ul class="btns">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var wheel = document.querySelector(".wheel");
+        var box = document.querySelector(".box");
+        var left = document.querySelector(".left");
+        var right = document.querySelector(".right");
+        console.log(right);
+        var btns = document.querySelectorAll(".btns li");
+        var angle = 90;
+        var num = 0;
+
+        function run() {
+            num++;
+            console.log(num);
+            box.style.transform = "rotateX(" + num * angle + "deg)";
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].style.background = "rgb(133, 133, 133)";
+                btns[i].style.border = "none";
+            }
+            btns[num % 4].style.background = "black";
+            btns[num % 4].style.border = "2px solid rgb(255, 255, 255)";
+
+        }
+        var t = setInterval(run, 3000)
+        window.onblur = function () {
+
+            clearInterval(t)
+        }
+        window.onfocus = function () {
+            console.log("获得焦点");
+            t = setInterval(run, 3000)
+        }
+        //鼠标放置
+        wheel.onmouseover = function () {
+            console.log("over");
+            clearInterval(t)
+        }
+        wheel.onmouseout = function () {
+            console.log("out");
+            t = setInterval(run, 3000)
+        }
+        left.onclick = function () {
+            num--;
+            console.log(num);
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].style.background = "rgb(133, 133, 133)";
+                btns[i].style.border = "none";
+            }
+            if (num < 0) {
+                var current = -num;
+            } else {
+                var current = num;
+            }
+            btns[current % 4].style.background = "black";
+            btns[current % 4].style.border = "2px solid rgb(255, 255, 255)";
+            box.style.transform = "rotateX(" + num * angle + "deg)";
+        }
+        right.onclick = function () {
+            num++;
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].style.background = "rgb(133, 133, 133)";
+                btns[i].style.border = "none";
+            }
+            if (num < 0) {
+                var current = -num;
+            } else {
+                var current = num;
+            }
+            btns[current % 4].style.background = "black";
+            btns[current % 4].style.border = "2px solid rgb(255, 255, 255)";
+            box.style.transform = "rotateX(" + num * angle + "deg)";
+        }
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                num = num + (Math.abs(num) % 4 - i);
+
+                box.style.transform = "rotateX(" + num * angle + "deg)";
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].style.background = "rgb(133, 133, 133)";
+                    btns[j].style.border = "none";
+                }
+                btns[i].style.background = "black";
+                btns[i].style.border = "2px solid rgb(255, 255, 255)";
+            }
+        }
+
+        function mousedir(obj, down, up, down1, up1) { //检测鼠标的方向
+            obj.onmousedown = function (ev) {
+                var startx = ev.clientX;
+                var starty = ev.clientY;
+                var movex, movey;
+                document.onmousemove = function (ev) {
+                    movex = ev.clientX;
+                    movey = ev.clientY;
+                    if (movey > starty) {
+                        down(Math.abs(movey - starty));
+                    } else {
+                        up(Math.abs(movey - starty));
+                    }
+                    ev.preventDefault();
+                }
+                document.onmouseup = function () {
+                    if (movey > starty) {
+                        down1(Math.abs(movey - starty));
+                    } else {
+                        up1(Math.abs(movey - starty));
+                    }
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+            }
+        }
+        mousedir(box, function (val) {
+            box.style.transition = "none";
+            box.style.transform = "rotateX(" + ((num * angle) + val) + "deg)";
+        }, function (val) {
+            box.style.transition = "none";
+            box.style.transform = "rotateX(" + ((num * angle) + (-val)) + "deg)";
+        }, function (val) {
+            box.style.transition = "transform 1s ease";
+            if (val > 40) {
+                num++;
+            }
+            box.style.transform = "rotateX(" + num * angle + "deg)";
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].style.background = "rgb(133, 133, 133)";
+                btns[i].style.border = "none";
+            }
+            if (num < 0) {
+                var current = -num;
+            } else {
+                var current = num;
+            }
+            btns[current % 4].style.background = "black";
+            btns[current % 4].style.border = "2px solid rgb(255, 255, 255)";
+            box.style.transform = "rotateX(" + num * angle + "deg)";
+
+        }, function (val) {
+            box.style.transition = "transform 1s ease";
+            if (val > 40) {
+                num--;
+            }
+            box.style.transform = "rotateX(" + num * angle + "deg)";
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].style.background = "rgb(133, 133, 133)";
+                btns[i].style.border = "none";
+            }
+            if (num < 0) {
+                var current = -num;
+            } else {
+                var current = num;
+            }
+            btns[current % 4].style.background = "black";
+            btns[current % 4].style.border = "2px solid rgb(255, 255, 255)";
+            box.style.transform = "rotateX(" + num * angle + "deg)";
+        });
+    </script>
+</body>
+
+</html>

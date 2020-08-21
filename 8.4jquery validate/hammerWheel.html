@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .win {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box {
+            width: 400%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+        }
+
+        .list {
+            width: 25%;
+            height: 100%;
+            font-size: 30px;
+            line-height: 300px;
+            text-align: center;
+        }
+
+        .list:nth-child(1) {
+            background-color: rgb(224, 57, 57);
+        }
+
+        .list:nth-child(2) {
+            background-color: rgb(187, 171, 171);
+        }
+
+        .list:nth-child(3) {
+            background-color: rgb(161, 179, 86);
+        }
+
+        .list:nth-child(4) {
+            background-color: rgb(126, 112, 250);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="win">
+        <div class="box">
+            <div class="list"></div>
+            <div class="list"></div>
+            <div class="list"></div>
+            <div class="list"></div>
+        </div>
+    </div>
+    <script src="hammer.js"></script>
+    <script>
+        var box = document.querySelector(".box");
+        console.log(box)
+        var hammertime = new Hammer(box);
+        var startx;
+        hammertime.on('panstart', function (ev) {
+            startx = box.offsetLeft;
+        });
+        hammertime.on('panleft', function (ev) {
+            box.style.left = startx + ev.deltaX + "px"
+        });
+        hammertime.on('panright', function (ev) {
+            box.style.left = startx + ev.deltaX + "px"
+        });
+        var num = 0;
+        var clientW = document.documentElement.clientWidth;
+        hammertime.on('panend', function (ev) {
+            if (ev.distance < 200) {
+                box.style.left = -num * clientW + "px"
+            } else {
+                if (ev.offsetDirection == 2) {
+                    num++;
+                    if (num > 3) {
+                        num = 3
+                    }
+                }
+                if (ev.offsetDirection == 4) {
+                    num--;
+                    if (num < 0) {
+                        num = 0
+                    }
+                }
+                box.style.transition = "all 0.5s ease";
+                box.style.left = -num * clientW + "px"
+            }
+
+        });
+    </script>
+</body>
+
+</html>

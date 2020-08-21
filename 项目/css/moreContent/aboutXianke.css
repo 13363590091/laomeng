@@ -1,0 +1,91 @@
+.r-container {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.r-container1 {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.right-title {
+    width: 100%;
+    height: 68px;
+    border-bottom: #e3e4e8 1px solid;
+}
+
+.r-title-name {
+    font-size: 20px;
+    color: #4b7910;
+    line-height: 30px;
+    height: 30px;
+}
+
+.r-title-e-name {
+    float: left;
+    color: #d5d5d5;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.r-title-text {
+    float: right;
+    color: #929292;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.r-link1 {
+    color: black;
+    transition: color 0.5s ease-in;
+}
+
+.r-link1:hover {
+    color: #4b7910;
+    text-decoration: none;
+}
+
+.r-link1:focus {
+    color: #4b7910;
+    text-decoration: none;
+}
+
+.r-ch {
+    color: #ccc !important;
+    font-family: "å®‹ä½“";
+}
+
+.right-context {
+    width: 100%;
+    height: 448px;
+    font-size: 14px;
+    line-height: 2;
+    margin-top: 20px;
+}
+
+.r-container2 {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.r-container3 {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.r-container4 {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.r-container5 {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
