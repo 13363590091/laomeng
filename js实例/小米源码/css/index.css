@@ -1,0 +1,106 @@
+.layout {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flex {
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  flex: 1;
+}
+.ellsips {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.align-items {
+  -webkit-align-items: center;
+  align-items: center;
+}
+.nav-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  flex: 1;
+}
+.nav-container img {
+  width: 100%;
+  display: block;
+}
+.waterfall-container {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 0.2rem;
+  -moz-column-gap: 0.2rem;
+  column-gap: 0.2rem;
+}
+.waterfall-container .waterfall-item {
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.waterfall-container .waterfall-item .pic img {
+  display: block;
+  width: 100%;
+}
+.waterfall-container .waterfall-item .info {
+  padding: 0 0.24rem;
+}
+.waterfall-container .waterfall-item .info .title {
+  font-size: 0.24rem;
+}
+.waterfall-container .waterfall-item .info .name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.36rem;
+  margin: 0.24rem 0;
+}
+.waterfall-container .waterfall-item .info .info-txt {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.waterfall-container .waterfall-item .info .info-txt .left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.waterfall-container .waterfall-item .info .info-txt .left img {
+  width: 0.46rem;
+  height: 0.46rem;
+  border-radius: 50%;
+}
+.waterfall-container .waterfall-item .info .info-txt .left span {
+  font-size: 0.24rem;
+}
+.waterfall-container .waterfall-item .info .info-txt .right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.waterfall-container .waterfall-item .info .info-txt .right .icon-comment {
+  color: red;
+  font-size: 0.5rem;
+}
+.waterfall-container .waterfall-item .info .info-txt .right .num {
+  font-size: 0.24rem;
+}

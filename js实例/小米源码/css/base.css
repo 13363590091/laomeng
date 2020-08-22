@@ -1,0 +1,258 @@
+img {
+  outline: 0
+}
+
+img[lazy=loading] {
+  background-color: #f1f4f3
+}
+
+img[lazy=loading].tag-icon {
+  background: none !important
+}
+
+img[lazy=loaded] {
+  -webkit-animation: opacity01 .3s;
+  animation: opacity01 .3s
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom)
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+  display: none;
+}
+.safe-area-inset {
+  display: block;
+  background: #fff;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom)
+}
+
+@-webkit-keyframes opacity01 {
+  0% {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes opacity01 {
+  0% {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+html {
+  /* x * (1/100 * 360) = 50  */
+  font-size: 100px;
+  font-size:13.889vw;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.app-shell .app-view-wrapper {
+  position: fixed;
+  max-width: 7.2rem;
+  margin: 0 auto;
+  top:0.82rem;
+  bottom:1.04rem;
+  left:0;
+  right:0;
+}
+
+.star-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* header */
+.app-shell-header {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 -3px 14px 2px rgba(0, 0, 0, .12);
+}
+
+.top-nav {
+  height: .82rem;
+  margin: 0 .24rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.top-nav-left {
+  height: .82rem;
+  line-height: .82rem;
+  font-size: 0;
+  font-weight: 700;
+  text-align: left;
+  overflow: hidden;
+  overflow-x: scroll;
+  white-space: nowrap
+}
+
+.nav-unit {
+  display: inline-block;
+  font-size: .32rem;
+}
+
+.nav-unit:first-child {
+  margin-left: .24rem
+}
+
+.nav-unit:not(:last-child) {
+  margin-right: .36rem
+}
+
+.nav-unit-active {
+  color: #ff6700
+}
+
+.top-nav-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.message-wrap {
+  width: .8rem;
+  height: .8rem;
+  margin-right: .213rem;
+}
+
+.message-bell {
+  display: block;
+  width: .8rem;
+  height: .8rem
+}
+
+.user-icon {
+  width: .52rem;
+  height: .52rem;
+  border-radius: 5rem;
+  display: block;
+}
+/* footer */
+.app-shell-footer {
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 3px 14px 2px rgba(0, 0, 0, .12)
+}
+
+.app-shell-footer .box-flex {
+  height: 1.04rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: .22rem;
+  text-align: center;
+}
+
+.app-shell-footer .flex {
+  display: block;
+  color: #999;
+  position: relative;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto
+}
+
+.app-shell-footer .flex .app-bottom-icon {
+  display: block;
+  width: .4rem;
+  height: .4rem;
+  margin: 0 auto .1rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.app-shell-footer .flex .icon-home {
+  background-image: url(../images/icon-home.png)
+}
+
+.app-shell-footer .flex .icon-category {
+  background-image: url(../images/icon-category.png)
+}
+
+.app-shell-footer .flex .icon-star {
+  background-image: url(../images/icon-star.png)
+}
+
+.app-shell-footer .flex .icon-cart {
+  background-image: url(../images/icon-cart.png)
+}
+
+.app-shell-footer .flex .icon-user {
+  background-image: url(../images/icon-user.png)
+}
+
+.app-shell-footer .flex.on {
+  color: #ff6700
+}
+
+.app-shell-footer .flex.on .icon-home {
+  background-image: url(../images/icon-home-selected.png)
+}
+
+.app-shell-footer .flex.on .icon-category {
+  background-image: url(../images/icon-category-selected.png)
+}
+
+.app-shell-footer .flex.on .icon-star {
+  background-image: url(../images/icon-home-selected.png)
+}
+
+.app-shell-footer .flex.on .icon-cart {
+  background-image: url(../images/icon-cart-selected.png)
+}
+
+.app-shell-footer .flex.on .icon-user {
+  background-image: url(../images/icon-user-selected.png)
+}

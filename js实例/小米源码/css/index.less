@@ -1,0 +1,100 @@
+// less/sass  mixin @include  嵌套
+.layout{
+    display:-webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex{
+    -webkit-flex:1;
+    -moz-flex:1;
+    flex:1;
+}  
+.ellsips{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow:hidden;
+    text-overflow: ellipsis;   
+}
+.align-items{
+    -webkit-align-items:center;
+    align-items: center;
+}
+
+// icon
+.nav-container{
+    .layout;
+    .flex;
+    img{
+        width: 100%;
+        display: block;
+    }
+}
+// waterfall    
+.waterfall-container{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+
+    -webkit-column-gap: .2rem;
+    -moz-column-gap: .2rem;
+    column-gap: .2rem;
+
+    .waterfall-item{
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        
+         .pic{
+            img{
+                display: block;
+                width: 100%;
+            }
+         }
+         .info{
+            padding:0 .24rem;
+            .title{
+                font-size:.24rem;
+            } 
+            .name{
+                .ellsips;
+                font-size: .36rem;
+                margin:.24rem 0;
+            }
+            .info-txt{
+
+                .layout;
+                -webkit-justify-content: space-between;
+                justify-content: space-between;
+               
+                .left{
+                    .layout;
+                    .align-items;
+                    img{
+                        width: 0.46rem;
+                        height: 0.46rem;
+                        border-radius: 50%;
+                    }
+                    span{
+                        font-size: .24rem;
+                    }
+                }
+                .right{
+                    .layout;
+                    .align-items;
+                    .icon-comment{
+                        color:red;
+                        font-size:.5rem;
+                    }
+                    .num{
+                        font-size: .24rem;
+                    }
+                }
+            }
+         }
+         
+    }
+    
+} 
+
